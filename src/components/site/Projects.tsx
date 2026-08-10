@@ -195,7 +195,7 @@ export function Projects() {
     <section
       ref={sectionRef}
       id="projects"
-      className="bg-[#FFFFFF] text-[#111111] relative w-full overflow-hidden z-10"
+      className="bg-background text-foreground relative w-full overflow-hidden z-10"
     >
       {/* DESKTOP PINNED LAYOUT */}
       <div className="hidden md:block w-full" ref={desktopPinRef}>
@@ -206,7 +206,7 @@ export function Projects() {
             aria-hidden="true"
           >
             {projects.map((_, i) => (
-              <div key={i} className="w-[2px] h-10 rounded-full bg-gray-200 overflow-hidden">
+              <div key={i} className="w-[2px] h-10 rounded-full bg-border overflow-hidden">
                 <div className="desktop-indicator w-full bg-[var(--color-accent-signal)] h-0"></div>
               </div>
             ))}
@@ -215,10 +215,10 @@ export function Projects() {
           {/* Project Information */}
           <div className="w-[38%] flex flex-col justify-center h-full relative z-10 pl-10">
             <header className="absolute top-[12vh]">
-              <p className="text-[11px] tracking-[0.24em] text-gray-500 uppercase mb-5 font-medium">
+              <p className="text-[11px] tracking-[0.24em] text-muted-foreground uppercase mb-5 font-medium">
                 Featured Projects
               </p>
-              <h2 className="text-[clamp(2.25rem,3vw,3.5rem)] leading-[0.95] font-medium tracking-[-0.03em] font-display text-[#111111]">
+              <h2 className="text-[clamp(2.25rem,3vw,3.5rem)] leading-[0.95] font-medium tracking-[-0.03em] font-display text-foreground">
                 SPACES WE'VE
                 <br />
                 MADE INTELLIGENT.
@@ -233,26 +233,26 @@ export function Projects() {
                 >
                   <div className="p-num mb-8 flex items-center gap-4 text-xs font-medium">
                     <span className="text-[var(--color-accent-signal)]">0{i + 1}</span>
-                    <div className="w-10 h-[1px] bg-gray-300"></div>
-                    <span className="text-gray-400">0{projects.length}</span>
+                    <div className="w-10 h-[1px] bg-border"></div>
+                    <span className="text-muted-foreground/70">0{projects.length}</span>
                   </div>
-                  <h3 className="p-title text-4xl lg:text-5xl font-medium font-display tracking-tight mb-4 text-[#111111]">
+                  <h3 className="p-title text-4xl lg:text-5xl font-medium font-display tracking-tight mb-4 text-foreground">
                     {p.name}
                   </h3>
-                  <div className="p-meta flex flex-col gap-1.5 text-gray-500 mb-10">
+                  <div className="p-meta flex flex-col gap-1.5 text-muted-foreground mb-10">
                     <p>{p.place}</p>
-                    <p className="text-[13px] text-gray-400 tracking-wide uppercase">{p.systems}</p>
+                    <p className="text-[13px] text-muted-foreground/70 tracking-wide uppercase">{p.systems}</p>
                   </div>
                   <a
                     href={`/projects/${p.name.toLowerCase().replace(/ /g, "-")}`}
-                    className="p-link group inline-flex items-center text-xs font-semibold tracking-[0.1em] text-[#111111] uppercase w-fit relative pb-2"
+                    className="p-link group inline-flex items-center text-xs font-semibold tracking-[0.1em] text-foreground uppercase w-fit relative pb-2"
                   >
                     VIEW PROJECT
                     <ArrowUpRight
                       className="ml-2 size-4 transition-transform duration-400 group-hover:translate-x-1"
                       strokeWidth={1.5}
                     />
-                    <span className="absolute bottom-0 left-0 h-[1px] w-full bg-[#111111] scale-x-0 origin-left transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100"></span>
+                    <span className="absolute bottom-0 left-0 h-[1px] w-full bg-foreground scale-x-0 origin-left transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100"></span>
                   </a>
                 </article>
               ))}
@@ -276,10 +276,10 @@ export function Projects() {
       {/* MOBILE VERTICAL LAYOUT */}
       <div className="md:hidden w-full px-6 py-24">
         <header className="mb-20">
-          <p className="text-[11px] tracking-[0.24em] text-gray-500 uppercase mb-4 font-medium">
+          <p className="text-[11px] tracking-[0.24em] text-muted-foreground uppercase mb-4 font-medium">
             Featured Projects
           </p>
-          <h2 className="text-[2.5rem] leading-[1.05] font-medium tracking-tight font-display text-[#111111]">
+          <h2 className="text-[2.5rem] leading-[1.05] font-medium tracking-tight font-display text-foreground">
             SPACES WE'VE
             <br />
             MADE INTELLIGENT.
@@ -289,7 +289,7 @@ export function Projects() {
         <div className="flex flex-col gap-24">
           {projects.map((p, i) => (
             <article key={i} className="mobile-article flex flex-col">
-              <div className="w-full aspect-[4/5] relative rounded-[16px] overflow-hidden bg-gray-50 mb-8 shadow-sm">
+              <div className="w-full aspect-[4/5] relative rounded-[16px] overflow-hidden bg-secondary mb-8 shadow-sm">
                 <img
                   src={p.img.src}
                   alt={`Fusion Tech project in ${p.place}`}
@@ -299,25 +299,25 @@ export function Projects() {
               </div>
               <div className="flex items-center gap-4 text-xs font-medium mb-5">
                 <span className="text-[var(--color-accent-signal)]">0{i + 1}</span>
-                <div className="w-8 h-[1px] bg-gray-300"></div>
-                <span className="text-gray-400">0{projects.length}</span>
+                <div className="w-8 h-[1px] bg-border"></div>
+                <span className="text-muted-foreground/70">0{projects.length}</span>
               </div>
-              <h3 className="text-3xl font-medium font-display tracking-tight mb-3 text-[#111111]">
+              <h3 className="text-3xl font-medium font-display tracking-tight mb-3 text-foreground">
                 {p.name}
               </h3>
-              <div className="flex flex-col gap-1 text-gray-500 mb-8 text-sm">
+              <div className="flex flex-col gap-1 text-muted-foreground mb-8 text-sm">
                 <p>{p.place}</p>
-                <p className="text-[13px] text-gray-400 uppercase tracking-wide mt-1">
+                <p className="text-[13px] text-muted-foreground/70 uppercase tracking-wide mt-1">
                   {p.systems}
                 </p>
               </div>
               <a
                 href={`/projects/${p.name.toLowerCase().replace(/ /g, "-")}`}
-                className="group inline-flex items-center text-xs font-semibold tracking-[0.1em] text-[#111111] uppercase w-fit relative pb-2"
+                className="group inline-flex items-center text-xs font-semibold tracking-[0.1em] text-foreground uppercase w-fit relative pb-2"
               >
                 VIEW PROJECT
                 <ArrowUpRight className="ml-2 size-4" strokeWidth={1.5} />
-                <span className="absolute bottom-0 left-0 h-[1px] w-full bg-[#111111] opacity-30"></span>
+                <span className="absolute bottom-0 left-0 h-[1px] w-full bg-foreground opacity-30"></span>
               </a>
             </article>
           ))}

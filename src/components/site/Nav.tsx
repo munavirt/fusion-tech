@@ -1,15 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Menu, X, Sun, MoonStar } from "lucide-react";
+import { Menu, X, Sun, MoonStar, Home, Info, Cpu, Image, Mail } from "lucide-react";
 import { useEnvironment } from "@/contexts/EnvironmentContext";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "#home", icon: Home },
+  { label: "About", href: "#about", icon: Info },
+  { label: "Solutions", href: "#solutions", icon: Cpu },
+  { label: "Projects", href: "#projects", icon: Image },
+  { label: "Contact", href: "#contact", icon: Mail },
 ];
 
 export function Nav() {
@@ -34,7 +34,7 @@ export function Nav() {
           : "border-b border-transparent py-6",
       )}
     >
-      <nav className="mx-auto flex w-full max-w-[1280px] items-center justify-between px-6">
+      <nav className="mx-auto flex w-[min(100%-48px,1440px)] md:w-[min(100%-96px,1440px)] items-center justify-between">
         <a href="#home" className="flex items-center gap-2.5">
           <span
             className={cn(
@@ -51,8 +51,9 @@ export function Nav() {
             <li key={l.label}>
               <a
                 href={l.href}
-                className="story-link text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                className="group story-link text-[15px] text-muted-foreground transition-colors hover:text-foreground flex items-center gap-1.5"
               >
+                <l.icon className="size-4 opacity-70 group-hover:opacity-100 transition-opacity" />
                 {l.label}
               </a>
             </li>
@@ -104,8 +105,9 @@ export function Nav() {
                 <a
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="text-base text-foreground"
+                  className="text-base text-foreground flex items-center gap-3"
                 >
+                  <l.icon className="size-5 text-muted-foreground" />
                   {l.label}
                 </a>
               </li>

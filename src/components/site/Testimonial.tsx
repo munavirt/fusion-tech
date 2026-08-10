@@ -348,7 +348,7 @@ export function Testimonial() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#FFFFFF] text-[#111111] relative w-full overflow-hidden z-10"
+      className="bg-background text-foreground relative w-full overflow-hidden z-10"
     >
       {/* Subtle Background Memories */}
       {!isReducedMotion &&
@@ -365,7 +365,7 @@ export function Testimonial() {
                   className="w-full h-full object-cover blur-[20px] scale-105 opacity-50"
                   aria-hidden="true"
                 />
-                <div className="absolute inset-0 bg-[#FFFFFF]/70 mix-blend-lighten"></div>
+                <div className="absolute inset-0 bg-background/70 mix-blend-lighten"></div>
               </div>
             ),
         )}
@@ -377,10 +377,10 @@ export function Testimonial() {
           ref={desktopContainerRef}
         >
           <header className="mb-20">
-            <p className="header-eyebrow text-[11px] tracking-[0.24em] text-gray-500 uppercase mb-5 font-medium">
+            <p className="header-eyebrow text-[11px] tracking-[0.24em] text-muted-foreground uppercase mb-5 font-medium">
               Client Experiences
             </p>
-            <h2 className="text-[clamp(2.5rem,4vw,4rem)] leading-[0.95] font-medium tracking-[-0.03em] font-display text-[#111111]">
+            <h2 className="text-[clamp(2.5rem,4vw,4rem)] leading-[0.95] font-medium tracking-[-0.03em] font-display text-foreground">
               <div className="overflow-hidden">
                 <div className="header-line">WHAT IT FEELS LIKE</div>
               </div>
@@ -396,19 +396,19 @@ export function Testimonial() {
                 key={i}
                 className={`desktop-article ${i === 0 ? "relative" : "absolute inset-0"} flex flex-col justify-center max-w-[900px] w-full h-full`}
               >
-                <blockquote className="font-display text-[clamp(2.2rem,3.5vw,4.5rem)] leading-[1.05] tracking-[-0.02em] font-medium text-[#111111] mb-12 text-balance">
+                <blockquote className="font-display text-[clamp(2.2rem,3.5vw,4.5rem)] leading-[1.05] tracking-[-0.02em] font-medium text-foreground mb-12 text-balance">
                   <SplitQuote text={`"${t.quote}"`} />
                 </blockquote>
 
                 <div className="flex items-end justify-between w-full">
                   <footer className="flex flex-col">
-                    <cite className="not-italic font-medium text-lg text-[#111111] tracking-tight">
+                    <cite className="not-italic font-medium text-lg text-foreground tracking-tight">
                       {t.name}
                     </cite>
-                    <span className="t-project text-sm text-gray-500 mt-1">{t.project}</span>
+                    <span className="t-project text-sm text-muted-foreground mt-1">{t.project}</span>
                     {t.source && (
-                      <div className="t-source mt-4 flex items-center gap-2 text-[11px] font-semibold tracking-wider text-gray-400 uppercase">
-                        <span className="flex text-gray-300 tracking-tighter text-[14px]">
+                      <div className="t-source mt-4 flex items-center gap-2 text-[11px] font-semibold tracking-wider text-muted-foreground/70 uppercase">
+                        <span className="flex text-muted-foreground/40 tracking-tighter text-[14px]">
                           ★★★★★
                         </span>
                         {t.source}
@@ -418,10 +418,10 @@ export function Testimonial() {
 
                   {t.projectName && (
                     <div className="t-assoc hidden lg:flex flex-col items-end text-right">
-                      <span className="text-[10px] tracking-[0.2em] text-gray-400 font-medium uppercase mb-1">
+                      <span className="text-[10px] tracking-[0.2em] text-muted-foreground/70 font-medium uppercase mb-1">
                         Associated Project
                       </span>
-                      <span className="text-xs font-semibold tracking-widest text-[#111111] uppercase">
+                      <span className="text-xs font-semibold tracking-widest text-foreground uppercase">
                         PROJECT {t.projectNumber} · {t.projectName}
                       </span>
                     </div>
@@ -438,10 +438,10 @@ export function Testimonial() {
             >
               {testimonials.map((_, i) => (
                 <div key={i} className="flex items-center gap-4">
-                  <span className="text-[10px] font-medium text-gray-400">
+                  <span className="text-[10px] font-medium text-muted-foreground/70">
                     0{i + 1} / 0{testimonials.length}
                   </span>
-                  <div className="w-16 h-[1px] bg-gray-200 overflow-hidden relative">
+                  <div className="w-16 h-[1px] bg-border overflow-hidden relative">
                     <div className="desktop-indicator absolute top-0 left-0 h-full bg-[var(--color-accent-signal)] w-0"></div>
                   </div>
                 </div>
@@ -454,10 +454,10 @@ export function Testimonial() {
       {/* Mobile & Reduced Motion Fallback Layout */}
       <div className={cn("w-full px-6 py-24 relative z-10", !isReducedMotion && "md:hidden")}>
         <header className="mobile-header mb-16">
-          <p className="mobile-header-eyebrow text-[11px] tracking-[0.24em] text-gray-500 uppercase mb-4 font-medium">
+          <p className="mobile-header-eyebrow text-[11px] tracking-[0.24em] text-muted-foreground uppercase mb-4 font-medium">
             Client Experiences
           </p>
-          <h2 className="text-[2.5rem] leading-[1.05] font-medium tracking-tight font-display text-[#111111]">
+          <h2 className="text-[2.5rem] leading-[1.05] font-medium tracking-tight font-display text-foreground">
             <div className="overflow-hidden">
               <div className="mobile-header-line">WHAT IT FEELS LIKE</div>
             </div>
@@ -470,27 +470,27 @@ export function Testimonial() {
         <div className="flex flex-col gap-24">
           {testimonials.map((t, i) => (
             <article key={i} className="mobile-article flex flex-col">
-              <blockquote className="font-display text-[2rem] leading-[1.15] tracking-tight font-medium mb-10 text-[#111111]">
+              <blockquote className="font-display text-[2rem] leading-[1.15] tracking-tight font-medium mb-10 text-foreground">
                 <SplitQuote text={`"${t.quote}"`} />
               </blockquote>
               <footer className="flex flex-col">
-                <cite className="not-italic font-medium text-lg text-[#111111] tracking-tight">
+                <cite className="not-italic font-medium text-lg text-foreground tracking-tight">
                   {t.name}
                 </cite>
-                <span className="text-sm text-gray-500 mt-1">{t.project}</span>
+                <span className="text-sm text-muted-foreground mt-1">{t.project}</span>
                 {t.source && (
-                  <div className="mt-4 flex items-center gap-2 text-[11px] font-semibold tracking-wider text-gray-400 uppercase">
-                    <span className="text-gray-300 tracking-tighter text-[14px]">★★★★★</span>
+                  <div className="mt-4 flex items-center gap-2 text-[11px] font-semibold tracking-wider text-muted-foreground/70 uppercase">
+                    <span className="text-muted-foreground/40 tracking-tighter text-[14px]">★★★★★</span>
                     {t.source}
                   </div>
                 )}
               </footer>
               {t.projectName && (
-                <div className="mt-8 pt-6 border-t border-gray-100 flex flex-col">
-                  <span className="text-[10px] tracking-[0.2em] text-gray-400 font-medium uppercase mb-1">
+                <div className="mt-8 pt-6 border-t border-border flex flex-col">
+                  <span className="text-[10px] tracking-[0.2em] text-muted-foreground/70 font-medium uppercase mb-1">
                     Associated Project
                   </span>
-                  <span className="text-xs font-semibold tracking-widest text-[#111111] uppercase">
+                  <span className="text-xs font-semibold tracking-widest text-foreground uppercase">
                     PROJECT {t.projectNumber} · {t.projectName}
                   </span>
                 </div>

@@ -8,5 +8,5 @@ __turbopack_load_page_chunks__("/_error", [
   "static/chunks/node_modules_10e2-xo._.js",
   "static/chunks/[root-of-the-server]__02sxxph._.js",
   "static/chunks/pages__error_0du2_q-._.js",
-  "static/chunks/turbopack-pages__error_1g3qll_._.js",
-]);
+  "static/chunks/turbopack-pages__error_1g3qll_._.js"
+])

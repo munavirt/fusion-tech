@@ -1,265 +1,179 @@
 "use client";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import heroImg from "../../assets/hero-right-1.png";
 
-gsap.registerPlugin(ScrollTrigger);
+const line1 = ["Living,"];
+const line2 = ["quietly"];
+const line3 = ["automated."];
 
-const splitText = (text: string) => {
-  return text.split("").map((char, index) => (
-    <span key={index} className="inline-block will-change-transform">
-      {char === " " ? "\u00A0" : char}
-    </span>
-  ));
-};
+const metrics = [
+  { value: "12+", label: "Years of integration" },
+  { value: "480", label: "Spaces automated" },
+  { value: "24/7", label: "Managed support" },
+];
 
 export function Hero() {
-  const heroRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const eyebrowRef = useRef<HTMLDivElement>(null);
-  const line1Ref = useRef<HTMLDivElement>(null);
-  const line2Ref = useRef<HTMLDivElement>(null);
-  const line3Ref = useRef<HTMLDivElement>(null);
-  const copyRef = useRef<HTMLParagraphElement>(null);
-  const ctaRef = useRef<HTMLAnchorElement>(null);
-  const trailRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const root = useRef<HTMLElement | null>(null);
+  const frame = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      const tl = gsap.timeline();
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
-      const chars1 = line1Ref.current?.children || [];
-      const chars2 = line2Ref.current?.children || [];
-      const chars3 = line3Ref.current?.children || [];
+      tl.from("[data-eyebrow]", { yPercent: 120, opacity: 0, duration: 1 }, 0)
+        .from(
+          "[data-word]",
+          { yPercent: 115, duration: 1.3, stagger: 0.08 },
+          0.1,
+        )
+        .from("[data-sub]", { y: 18, opacity: 0, duration: 1 }, 0.7)
+        .from("[data-cta]", { y: 18, opacity: 0, duration: 0.9, stagger: 0.08 }, 0.85)
+        .fromTo(
+          "[data-frame]",
+          { clipPath: "inset(100% 0% 0% 0%)" },
+          { clipPath: "inset(0% 0% 0% 0%)", duration: 1.4, ease: "power3.out" },
+          0.2,
+        )
+        .fromTo(
+          "[data-img]",
+          { scale: 1.025 },
+          { scale: 1, duration: 1.4, ease: "power3.out" },
+          0.2,
+        )
+        .from("[data-float]", { y: 16, opacity: 0, duration: 0.9, ease: "power3.out" }, 1.2);
 
-      // Initial States
-      gsap.set(eyebrowRef.current, { opacity: 0, y: 15 });
-      gsap.set([chars1, chars2, chars3], {
-        opacity: 0,
-        y: 50,
-        rotateX: -90,
-        transformOrigin: "50% 50% -20px",
+      // gentle continuous float + mouse parallax on the image
+      // gentle continuous float on the image
+      gsap.to("[data-img-wrap]", {
+        yPercent: -2,
+        duration: 8,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
       });
-      gsap.set(copyRef.current, { opacity: 0, y: 20 });
-      gsap.set(ctaRef.current, { opacity: 0 });
 
-      // Timeline
-      // 0.20s - 0.80s: Eyebrow
-      tl.to(
-        eyebrowRef.current,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: "power3.out",
-        },
-        0.2,
-      );
+      const onMove = (e: PointerEvent) => {
+        const el = frame.current;
+        if (!el) return;
+        const r = el.getBoundingClientRect();
+        const dx = (e.clientX - (r.left + r.width / 2)) / r.width;
+        const dy = (e.clientY - (r.top + r.height / 2)) / r.height;
+        gsap.to("[data-img]", { x: dx * 4, y: dy * 3, duration: 1.2, ease: "power3.out" });
+        gsap.to("[data-float]", { x: dx * -8, y: dy * -6, duration: 1.4, ease: "power3.out" });
+      };
+      window.addEventListener("pointermove", onMove);
+      return () => window.removeEventListener("pointermove", onMove);
+    }, root);
 
-      // Headline line 1 (Character by Character)
-      tl.to(
-        chars1,
-        {
-          opacity: 1,
-          y: 0,
-          rotateX: 0,
-          stagger: 0.03,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        0.35,
-      );
-
-      // Headline line 2
-      tl.to(
-        chars2,
-        {
-          opacity: 1,
-          y: 0,
-          rotateX: 0,
-          stagger: 0.03,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        0.6,
-      );
-
-      // Headline line 3
-      tl.to(
-        chars3,
-        {
-          opacity: 1,
-          y: 0,
-          rotateX: 0,
-          stagger: 0.03,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        0.85,
-      );
-
-      // Supporting copy
-      tl.to(
-        copyRef.current,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: "power3.out",
-        },
-        1.4,
-      );
-
-      // CTA
-      tl.to(
-        ctaRef.current,
-        {
-          opacity: 1,
-          duration: 0.6,
-          ease: "power3.out",
-        },
-        1.9,
-      );
-
-      // Scroll Interaction
-      ScrollTrigger.create({
-        trigger: heroRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-        animation: gsap.timeline().to(videoRef.current, { scale: 1.03, ease: "none" }, 0).to(
-          [
-            eyebrowRef.current,
-            line1Ref.current,
-            line2Ref.current,
-            line3Ref.current,
-            copyRef.current,
-            ctaRef.current,
-          ],
-          {
-            y: -30,
-            opacity: 0,
-            stagger: 0.05,
-            ease: "none",
-          },
-          0,
-        ),
-      });
-    }, heroRef);
-
-    const handleMouseMove = (e: MouseEvent) => {
-      gsap.to(trailRefs.current, {
-        x: e.clientX,
-        y: e.clientY,
-        stagger: 0.02,
-        ease: "power3.out",
-        overwrite: "auto",
-        duration: 0.5,
-      });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      ctx.revert();
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
     <section
-      ref={heroRef}
-      className="relative w-full h-[100svh] min-h-[90vh] bg-white overflow-hidden flex flex-col justify-center"
+      id="home"
+      ref={root}
+      className="bg-background relative isolate flex min-h-screen flex-col overflow-hidden"
     >
-      {/* Cursor Trail Elements */}
-      <div className="hidden md:block pointer-events-none">
-        {[...Array(8)].map((_, i) => {
-          const size = Math.max(4, 12 - i * 1.5);
-          return (
-            <div
-              key={i}
-              ref={(el) => {
-                trailRefs.current[i] = el;
-              }}
-              className="fixed top-0 left-0 rounded-full bg-white mix-blend-difference z-[100]"
-              style={{
-                width: size,
-                height: size,
-                marginLeft: -size / 2,
-                marginTop: -size / 2,
-                opacity: 1 - i * 0.1,
-              }}
-            />
-          );
-        })}
-      </div>
-
-      {/* Video Layer */}
-      <div className="absolute inset-0 z-0 overflow-hidden bg-white">
-        <video
-          ref={videoRef}
-          src="/hero-2-video.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover object-center md:object-right"
-          preload="metadata"
+      {/* Mobile background image */}
+      <div className="absolute inset-0 z-0 lg:hidden overflow-hidden">
+        <img
+          src={heroImg.src}
+          alt="Minimal living room"
+          className="w-full h-full object-cover"
         />
-        {/* Subtle white gradient creating a clean typography zone on the left */}
-        <div className="absolute inset-y-0 left-0 w-full md:w-[50%] bg-gradient-to-b md:bg-gradient-to-r from-white via-white/95 to-transparent md:to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-background/85" />
       </div>
+      {/* hairline grid */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.55]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, color-mix(in oklab, var(--border) 70%, transparent) 1px, transparent 1px)",
+          backgroundSize: "calc(100% / 6) 100%",
+        }}
+      />
 
-      {/* Content Layer */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-center h-full pt-16">
-        <div className="w-full md:w-[42%] flex flex-col justify-center">
-          {/* Eyebrow */}
-          <div
-            ref={eyebrowRef}
-            className="text-xs md:text-sm font-medium tracking-widest text-zinc-800 mb-6 md:mb-8"
-          >
-            FUSION TECH
+      <div className="relative mx-auto flex w-[min(100%-48px,1440px)] md:w-[min(100%-96px,1440px)] flex-1 flex-col pt-20 pb-8 lg:pt-32">
+        <div className="flex flex-col-reverse lg:flex-row flex-1 items-center justify-center lg:justify-between gap-12 lg:gap-[8%] relative z-10">
+          {/* copy */}
+          <div className="w-full lg:w-[48%] flex flex-col justify-center items-center lg:items-start text-center lg:text-left lg:pl-[10%]">
+            <div className="overflow-hidden">
+              <p
+                data-eyebrow
+                className="text-muted-foreground/80 text-[11px] font-semibold tracking-[0.2em] uppercase"
+              >
+                FusionTech Expert — Smart Home Automation
+              </p>
+            </div>
+
+            <h1 className="font-display text-foreground mt-6 lg:mt-8 text-[clamp(3.2rem,12vw,5rem)] lg:text-[clamp(4rem,6.2vw,6.8rem)] leading-[0.92] lg:leading-[0.94] font-[700] tracking-[-0.055em] max-w-[620px]">
+              {[line1, line2, line3].map((words, i) => (
+                <span key={i} className="block overflow-hidden py-[0.06em]">
+                  <span
+                    data-word
+                    className={i === 2 ? "text-[#2964A0] block mx-auto lg:mx-0" : "block mx-auto lg:mx-0"}
+                  >
+                    {words.join(" ")}
+                  </span>
+                </span>
+              ))}
+            </h1>
+
+            <p
+              data-sub
+              className="text-muted-foreground mt-8 lg:mt-12 max-w-[470px] text-[0.85rem] leading-[1.6] mx-auto lg:mx-0"
+            >
+              Lighting, climate, security and sound — designed as one calm system
+              for homes, villas and hospitality spaces.
+            </p>
+
+            <div className="mt-8 lg:mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6">
+              <a
+                data-cta
+                href="#contact"
+                className="bg-foreground text-background group inline-flex items-center gap-2 rounded-full px-7 py-3 text-[14px] font-medium transition-transform duration-300 hover:-translate-y-0.5"
+              >
+                Book a consultation
+                <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </div>
           </div>
 
-          {/* Headline (Character-by-character GSAP animation) */}
-          <h1
-            className="font-instrument text-3xl md:text-4xl lg:text-5xl xl:text-[3.75rem] text-[#111111] leading-[0.9] tracking-[-0.04em] mb-8"
-            style={{ perspective: "1000px" }}
-          >
-            <span className="block overflow-hidden pb-2 font-medium">
-              <div ref={line1Ref}>{splitText("INTELLIGENCE.")}</div>
-            </span>
-            <span className="block overflow-hidden pb-2 font-normal">
-              <div ref={line2Ref}>{splitText("BUILT INTO")}</div>
-            </span>
-            <span className="block overflow-hidden pb-2 font-medium">
-              <div ref={line3Ref}>{splitText("YOUR SPACE.")}</div>
-            </span>
-          </h1>
-
-          {/* Supporting Copy */}
-          <p
-            ref={copyRef}
-            className="text-zinc-600 text-sm md:text-base max-w-[380px] mb-10 leading-relaxed"
-          >
-            Lighting, climate, security and entertainment — quietly connected around the way you
-            live.
-          </p>
-
-          {/* CTA */}
-          <a
-            ref={ctaRef}
-            href="#explore"
-            className="inline-flex items-center text-xs md:text-sm font-medium text-zinc-900 group tracking-wide"
-          >
-            <span className="relative overflow-hidden pb-1">
-              EXPLORE THE EXPERIENCE
-              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-zinc-900 transform origin-left transition-transform duration-300 group-hover:scale-x-0" />
-            </span>
-            <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-yellow-500" />
-          </a>
+          {/* image */}
+          <div className="hidden lg:flex w-full lg:w-[44%] relative items-center justify-center">
+            <div
+              ref={frame}
+              data-frame
+              className="relative aspect-square w-full max-w-[540px] overflow-hidden rounded-[32px] shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
+              style={{ clipPath: "inset(100% 0% 0% 0%)" }}
+            >
+              <div data-img-wrap className="absolute inset-[-4%] size-[108%]">
+                <img
+                  data-img
+                  src={heroImg.src}
+                  alt="Minimal living room with integrated smart lighting and motorised shades"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
+              <div
+                data-float
+                className="border-border/60 bg-background/95 absolute bottom-6 left-6 rounded-[3px] border px-3 py-1.5 backdrop-blur-md shadow-sm"
+              >
+                <span className="text-foreground flex items-center gap-2 text-[10px] tracking-[0.14em] uppercase font-medium">
+                  <span className="bg-[#2964A0] size-1.5 animate-pulse rounded-full" />
+                  Living room · calm scene
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* footer row */}
+
       </div>
     </section>
   );
