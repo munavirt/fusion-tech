@@ -67,10 +67,14 @@ export function Nav() {
             aria-label={isNight ? "Switch to light mode" : "Switch to dark mode"}
             className={cn(
               "hidden md:grid size-10 place-items-center rounded-full bg-secondary/80 text-foreground transition-all duration-300 hover:bg-secondary",
-              isTransitioning && "opacity-70 pointer-events-none"
+              isTransitioning && "opacity-70 pointer-events-none",
             )}
           >
-            {isNight ? <MoonStar className="size-5" strokeWidth={1.5} /> : <Sun className="size-5" strokeWidth={1.5} />}
+            {isNight ? (
+              <MoonStar className="size-5" strokeWidth={1.5} />
+            ) : (
+              <Sun className="size-5" strokeWidth={1.5} />
+            )}
           </button>
           <a
             href="#contact"
@@ -83,7 +87,11 @@ export function Nav() {
             onClick={() => setOpen((v) => !v)}
             className="grid size-10 place-items-center rounded-full border border-border md:hidden"
           >
-            {open ? <X className="size-5" strokeWidth={1.5} /> : <Menu className="size-5" strokeWidth={1.5} />}
+            {open ? (
+              <X className="size-5" strokeWidth={1.5} />
+            ) : (
+              <Menu className="size-5" strokeWidth={1.5} />
+            )}
           </button>
         </div>
       </nav>
@@ -93,7 +101,11 @@ export function Nav() {
           <ul className="flex flex-col gap-5">
             {links.map((l) => (
               <li key={l.label}>
-                <a href={l.href} onClick={() => setOpen(false)} className="text-base text-foreground">
+                <a
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="text-base text-foreground"
+                >
                   {l.label}
                 </a>
               </li>
@@ -118,7 +130,7 @@ export function Nav() {
                 aria-label={isNight ? "Switch to light mode" : "Switch to dark mode"}
                 className={cn(
                   "flex items-center gap-2 rounded-full bg-secondary/80 px-4 py-2 text-[15px] font-medium text-foreground transition-all duration-300 hover:bg-secondary",
-                  isTransitioning && "opacity-70 pointer-events-none"
+                  isTransitioning && "opacity-70 pointer-events-none",
                 )}
               >
                 {isNight ? (

@@ -1,39 +1,77 @@
 import { Reveal } from "./Reveal";
+import { cn } from "@/lib/utils";
 
 const steps = [
-  { n: "01", title: "Consultation", copy: "We listen to how you live or work before proposing a single device." },
-  { n: "02", title: "Planning", copy: "System design, load schedules and cable routes aligned with your architect." },
-  { n: "03", title: "Installation", copy: "Clean, coordinated on-site execution with zero damage to finishes." },
-  { n: "04", title: "Programming", copy: "Scenes tuned to your routines, tested room by room." },
-  { n: "05", title: "Testing", copy: "Full commissioning, handover and training for everyone in the space." },
-  { n: "06", title: "Lifetime Support", copy: "Remote diagnostics and on-call engineers for the life of the system." },
+  {
+    n: "01",
+    title: "Consultation",
+    copy: "Understanding your lifestyle, architectural vision, and technology requirements before proposing a single device.",
+  },
+  {
+    n: "02",
+    title: "Site Assessment",
+    copy: "Detailed architectural review to ensure flawless integration of our systems into the physical space.",
+  },
+  {
+    n: "03",
+    title: "System Design",
+    copy: "Comprehensive engineering, load schedules, and cable routes aligned perfectly with your architect and interior designer.",
+  },
+  {
+    n: "04",
+    title: "Installation",
+    copy: "Clean, coordinated on-site execution with precision craftsmanship and zero damage to finishes.",
+  },
+  {
+    n: "05",
+    title: "Programming & Testing",
+    copy: "Scenes tuned to your routines, tested room by room to ensure intuitive, flawless operation.",
+  },
+  {
+    n: "06",
+    title: "Handover & Support",
+    copy: "Full commissioning, personalized training, and remote diagnostics for the life of the system.",
+  },
 ];
 
 export function Process() {
   return (
-    <section className="bg-secondary/50 py-24 lg:py-[120px]">
-      <div className="mx-auto w-full max-w-[1280px] px-6">
-        <Reveal>
-          <p className="text-sm tracking-[0.24em] text-muted-foreground uppercase">Why FusionTech</p>
-          <h2 className="mt-5 max-w-2xl text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.08] font-extrabold tracking-[-0.02em]">
-            A process built for precision
-          </h2>
-        </Reveal>
-
-        <ol className="relative mt-16 border-l border-border pl-8 lg:pl-14">
-          {steps.map((s, i) => (
-            <Reveal as="li" key={s.n} delay={i * 70} className="relative pb-12 last:pb-0">
-              <span className="absolute top-1.5 -left-[calc(2rem+1px)] size-2.5 -translate-x-1/2 rounded-full bg-primary lg:-left-[calc(3.5rem+1px)]" />
-              <div className="grid gap-2 lg:grid-cols-[8rem_1fr] lg:gap-10">
-                <span className="font-display text-2xl font-extrabold text-primary/40">{s.n}</span>
-                <div>
-                  <h3 className="text-2xl font-bold tracking-[-0.02em]">{s.title}</h3>
-                  <p className="mt-2 max-w-lg text-lg text-muted-foreground">{s.copy}</p>
-                </div>
-              </div>
+    <section className="bg-background py-24 lg:py-32">
+      <div className="mx-auto w-full max-w-[1320px] px-6">
+        <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 lg:gap-24">
+          <div className="lg:sticky lg:top-32 lg:self-start">
+            <Reveal>
+              <h2 className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] font-semibold tracking-[-0.03em] text-foreground">
+                How we
+                <br />
+                work.
+              </h2>
+              <p className="mt-6 max-w-sm text-lg text-muted-foreground leading-relaxed">
+                A meticulous process designed to integrate complex technology into premium spaces
+                without compromise.
+              </p>
             </Reveal>
-          ))}
-        </ol>
+          </div>
+
+          <div className="flex flex-col gap-12 lg:gap-24 lg:py-12 border-l border-border/50 pl-8 lg:pl-16">
+            {steps.map((s, i) => (
+              <Reveal key={s.n} delay={i * 50}>
+                <div className="group relative">
+                  <div className="absolute -left-[32px] lg:-left-[64px] top-2 size-2 bg-primary rounded-full opacity-50 transition-transform duration-500 group-hover:scale-150 group-hover:opacity-100" />
+                  <span className="font-display text-sm tracking-widest text-muted-foreground">
+                    {s.n}
+                  </span>
+                  <h3 className="mt-3 text-2xl lg:text-3xl font-medium tracking-tight text-foreground transition-colors group-hover:text-primary">
+                    {s.title}
+                  </h3>
+                  <p className="mt-4 max-w-md text-lg text-muted-foreground leading-relaxed">
+                    {s.copy}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

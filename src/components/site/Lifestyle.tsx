@@ -38,7 +38,9 @@ export function Lifestyle() {
     <section className="py-24 lg:py-[120px]">
       <div className="mx-auto w-full max-w-[1280px] px-6">
         <Reveal>
-          <p className="text-sm tracking-[0.24em] text-muted-foreground uppercase">Experience smart living</p>
+          <p className="text-sm tracking-[0.24em] text-muted-foreground uppercase">
+            Experience smart living
+          </p>
           <h2 className="mt-5 max-w-2xl text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.08] font-extrabold tracking-[-0.02em]">
             Automation that fits your lifestyle
           </h2>
@@ -59,12 +61,17 @@ export function Lifestyle() {
                   <span className="grid size-11 place-items-center rounded-full bg-accent text-primary transition-colors duration-500 group-hover:bg-primary group-hover:text-primary-foreground">
                     <s.icon className="size-5" strokeWidth={1.4} />
                   </span>
-                  <span className="font-display text-sm text-muted-foreground tabular-nums">{s.time}</span>
+                  <span className="font-display text-sm text-muted-foreground tabular-nums">
+                    {s.time}
+                  </span>
                 </div>
                 <h3 className="mt-6 text-xl font-bold tracking-tight">{s.title}</h3>
                 <ul className="mt-5 space-y-3">
                   {s.steps.map((step, j) => (
-                    <li key={step} className="flex items-start gap-3 text-[15px] text-muted-foreground">
+                    <li
+                      key={step}
+                      className="flex items-start gap-3 text-[15px] text-muted-foreground"
+                    >
                       <span
                         style={{ transitionDelay: `${j * 140}ms` }}
                         className={cn(

@@ -55,7 +55,6 @@ Huge typography.
 Smarter Spaces.
 Simpler Living.
 
-
 Subheading
 
 Intelligent home and commercial automation solutions that bring comfort, security, and control together.
@@ -93,7 +92,6 @@ Climate
 Entertainment
 
 Security
-
 
 No floating boxes.
 
@@ -139,7 +137,6 @@ Very elegant.
 
 Trusted Automation Partner
 
-
 Animated numbers
 
 500+
@@ -158,7 +155,6 @@ Engineers
 
 Support
 
-
 Numbers animate while scrolling.
 
 SECTION 03 — Experience Smart Living
@@ -168,7 +164,6 @@ This replaces the boring "Our Services."
 Headline
 
 Automation That Fits Your Lifestyle
-
 
 Instead of services
 
@@ -298,7 +293,6 @@ Entertainment control
 
 Climate automation
 
-
 This makes the experience memorable.
 
 SECTION 06 — Why FusionTech
@@ -340,7 +334,6 @@ Testing
 06
 
 Lifetime Support
-
 
 Each stage animates into view.
 
@@ -409,7 +402,6 @@ Large white section.
 Headline
 
 Ready to Experience Smart Living?
-
 
 Buttons
 
@@ -508,7 +500,6 @@ Why this landing page will stand out
 Most automation companies present a catalog. This landing page presents an experience. Visitors first imagine themselves living or working in a smarter space, then naturally discover the technology and services that make it possible. That emotional progression is what creates a stronger premium impression and encourages more consultation requests.
 
 Once this landing page is finalized, we can use the same visual language and storytelling approach to design the remaining pages (About, Solutions, Projects, and Contact) so the entire website feels cohesive and high-end.
-
 
 This is the prompt I would use before generating any UI. It establishes the complete technical and visual direction so the design remains consistent across the entire project.
 
@@ -620,46 +611,37 @@ White
 
 #FFFFFF
 
-
 Secondary
 
 #2866A3
-
 
 Primary Text
 
 #171717
 
-
 Secondary Text
 
 #6B7280
-
 
 Background
 
 #F8FAFC
 
-
 Accent Background
 
 #EDF6FF
-
 
 Border
 
 #E5E7EB
 
-
 Success
 
 #16A34A
 
-
 Warning
 
 #F59E0B
-
 
 Avoid dark-themed sections unless strategically required.
 
@@ -745,11 +727,9 @@ Maximum Content Width
 
 1440px
 
-
 Standard Content Width
 
 1280px
-
 
 Section Padding
 
@@ -798,7 +778,6 @@ Use soft elevation instead of heavy drop shadows.
 Example
 
 0 10px 40px rgba(0,0,0,0.06)
-
 
 Avoid dark, dramatic shadows.
 
@@ -994,15 +973,14 @@ Suggested structure:
 
 app/
 components/
-  ui/
-  layout/
-  sections/
-  animations/
+ui/
+layout/
+sections/
+animations/
 lib/
 hooks/
 styles/
 public/
-
 
 Each section of the homepage should be a standalone component for maintainability and reuse.
 

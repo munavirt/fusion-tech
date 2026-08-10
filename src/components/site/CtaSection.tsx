@@ -14,8 +14,8 @@ export function CtaSection() {
             Ready to experience smart living?
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-            Tell us about your space. We'll walk you through what's possible — no obligation,
-            no jargon.
+            Tell us about your space. We'll walk you through what's possible — no obligation, no
+            jargon.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a

@@ -197,7 +197,6 @@
 }
 
 @keyframes glow-drift {
-
   0%,
   100% {
     transform: translate3d(-12%, 0, 0) scale(1);
@@ -239,26 +238,24 @@
  */
 @layer components {
   .hero-scrim {
-    background: linear-gradient(100deg,
-        rgba(255, 255, 255, 0.9) 0%,
-        rgba(255, 255, 255, 0.55) 28%,
-        rgba(255, 255, 255, 0) 55%);
+    background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.55) 28%,
+      rgba(255, 255, 255, 0) 55%
+    );
   }
 
   .hero-scroll-line {
     display: block;
     width: 1px;
     height: 28px;
-    background: linear-gradient(to bottom,
-        var(--color-accent-signal),
-        rgba(17, 17, 17, 0.15));
+    background: linear-gradient(to bottom, var(--color-accent-signal), rgba(17, 17, 17, 0.15));
   }
 
   @media (max-width: 767px) {
     .hero-scrim {
-      background: linear-gradient(to top,
-          rgba(255, 255, 255, 0.95) 0%,
-          rgba(255, 255, 255, 0) 40%);
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 40%);
     }
   }
 }

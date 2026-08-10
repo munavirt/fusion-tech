@@ -107,7 +107,7 @@ export function Solutions() {
             duration: 1,
             ease: "none",
           },
-          position
+          position,
         );
 
         scrollTimeline.to(
@@ -117,7 +117,7 @@ export function Solutions() {
             duration: 1,
             ease: "power2.inOut",
           },
-          position
+          position,
         );
       }
 
@@ -149,7 +149,11 @@ export function Solutions() {
         </Reveal>
 
         {/* Pinned Container wrapper */}
-        <div className="mt-16 relative h-[80vh] min-h-[600px] w-full" style={{ perspective: "1200px" }} ref={containerRef}>
+        <div
+          className="mt-16 relative h-[80vh] min-h-[600px] w-full"
+          style={{ perspective: "1200px" }}
+          ref={containerRef}
+        >
           {solutions.map((s, i) => (
             <article
               key={s.title}
@@ -158,10 +162,15 @@ export function Solutions() {
               }}
               className={cn(
                 "absolute top-0 left-0 w-full h-full", // Absolute stacking
-                "group grid items-center gap-8 overflow-hidden rounded-[24px] border border-border bg-card p-6 shadow-[0_10px_40px_rgba(0,0,0,0.12)] lg:grid-cols-2 lg:gap-16 lg:p-8 will-change-transform"
+                "group grid items-center gap-8 overflow-hidden rounded-[24px] border border-border bg-card p-6 shadow-[0_10px_40px_rgba(0,0,0,0.12)] lg:grid-cols-2 lg:gap-16 lg:p-8 will-change-transform",
               )}
             >
-              <div className={cn("h-[40vh] min-h-[260px] lg:h-full w-full overflow-hidden rounded-[20px]", i % 2 === 1 && "lg:order-2")}>
+              <div
+                className={cn(
+                  "h-[40vh] min-h-[260px] lg:h-full w-full overflow-hidden rounded-[20px]",
+                  i % 2 === 1 && "lg:order-2",
+                )}
+              >
                 <img
                   src={s.image.src}
                   alt={s.alt}
@@ -171,10 +180,18 @@ export function Solutions() {
                   className="sol-image h-full w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
                 />
               </div>
-              <div className={cn("flex flex-col justify-center", i % 2 === 1 && "lg:order-1 lg:pl-6")}>
-                <span className="anim-text block font-display text-sm tracking-widest text-primary">{s.n}</span>
-                <h3 className="anim-text mt-4 text-[clamp(1.6rem,2.4vw,2.25rem)] font-bold tracking-[-0.02em]">{s.title}</h3>
-                <p className="anim-text mt-4 max-w-md text-lg leading-relaxed text-muted-foreground">{s.copy}</p>
+              <div
+                className={cn("flex flex-col justify-center", i % 2 === 1 && "lg:order-1 lg:pl-6")}
+              >
+                <span className="anim-text block font-display text-sm tracking-widest text-primary">
+                  {s.n}
+                </span>
+                <h3 className="anim-text mt-4 text-[clamp(1.6rem,2.4vw,2.25rem)] font-bold tracking-[-0.02em]">
+                  {s.title}
+                </h3>
+                <p className="anim-text mt-4 max-w-md text-lg leading-relaxed text-muted-foreground">
+                  {s.copy}
+                </p>
                 <ul className="anim-text mt-7 flex flex-wrap gap-2.5">
                   {s.features.map((f) => (
                     <li

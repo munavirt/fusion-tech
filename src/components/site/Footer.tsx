@@ -20,7 +20,8 @@ export function Footer() {
               FusionTech<span className="text-primary"> Expert</span>
             </span>
             <p className="mt-4 max-w-xs text-base text-muted-foreground">
-              Intelligent home and commercial automation — designed, installed and supported for life.
+              Intelligent home and commercial automation — designed, installed and supported for
+              life.
             </p>
             <div className="mt-6 flex gap-3">
               {[Instagram, Linkedin, Youtube].map((Icon, i) => (
@@ -42,7 +43,10 @@ export function Footer() {
               <ul className="mt-5 space-y-3">
                 {c.links.map((l) => (
                   <li key={l}>
-                    <a href="#" className="text-base text-muted-foreground transition-colors hover:text-primary">
+                    <a
+                      href="#"
+                      className="text-base text-muted-foreground transition-colors hover:text-primary"
+                    >
                       {l}
                     </a>
                   </li>
@@ -71,40 +75,13 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-
-            <form
-              className="mt-7"
-              onSubmit={(e) => {
-                e.preventDefault();
-                (e.currentTarget as HTMLFormElement).reset();
-              }}
-            >
-              <label htmlFor="newsletter" className="text-sm text-muted-foreground">
-                Newsletter
-              </label>
-              <div className="mt-2 flex gap-2">
-                <input
-                  id="newsletter"
-                  type="email"
-                  required
-                  placeholder="you@email.com"
-                  className="w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none transition-colors focus:border-primary"
-                />
-                <button
-                  type="submit"
-                  className="rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-brand-deep"
-                >
-                  Join
-                </button>
-              </div>
-            </form>
           </div>
         </div>
 
         <div className="mt-16 overflow-hidden rounded-[24px] border border-border">
           <iframe
             title="FusionTech Expert office location"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=77.55%2C12.88%2C77.78%2C13.06&layer=mapnik"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15658.130393452633!2d75.9662484!3d11.1481464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba64ee2471144f5%3A0x8692de4117c315d!2sKondotty%2C%20Kerala!5e0!3m2!1sen!2sin!4v1786307266061!5m2!1sen!2sin"
             loading="lazy"
             className="h-[300px] w-full grayscale-[0.35]"
           />

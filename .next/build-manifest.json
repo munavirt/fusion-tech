@@ -3,9 +3,7 @@
     "/_app": []
   },
   "devFiles": [],
-  "polyfillFiles": [
-    "static/chunks/0cz1d0mv5g_q7.js"
-  ],
+  "polyfillFiles": ["static/chunks/0cz1d0mv5g_q7.js"],
   "lowPriorityFiles": [
     "static/TvdyWQM2WjhrYnx2Fd8bT/_buildManifest.js",
     "static/TvdyWQM2WjhrYnx2Fd8bT/_ssgManifest.js",

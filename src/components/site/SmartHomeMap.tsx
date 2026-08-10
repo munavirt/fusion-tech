@@ -10,7 +10,12 @@ const rooms = [
     name: "Living Room",
     x: "26%",
     y: "66%",
-    items: ["Voice-controlled lighting", "Motorized curtains", "Entertainment control", "Climate automation"],
+    items: [
+      "Voice-controlled lighting",
+      "Motorized curtains",
+      "Entertainment control",
+      "Climate automation",
+    ],
   },
   {
     key: "bedroom",
@@ -57,7 +62,9 @@ export function SmartHomeMap() {
     <section className="py-24 lg:py-[120px]">
       <div className="mx-auto w-full max-w-[1280px] px-6">
         <Reveal>
-          <p className="text-sm tracking-[0.24em] text-muted-foreground uppercase">Explore a smart home</p>
+          <p className="text-sm tracking-[0.24em] text-muted-foreground uppercase">
+            Explore a smart home
+          </p>
           <h2 className="mt-5 max-w-2xl text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.08] font-extrabold tracking-[-0.02em]">
             Every room, working quietly in your favour
           </h2>
@@ -106,11 +113,16 @@ export function SmartHomeMap() {
 
             <div className="flex flex-col justify-between rounded-[24px] border border-border bg-card p-8">
               <div>
-                <span className="text-sm tracking-[0.2em] text-primary uppercase">Selected space</span>
+                <span className="text-sm tracking-[0.2em] text-primary uppercase">
+                  Selected space
+                </span>
                 <h3 className="mt-3 text-3xl font-bold tracking-[-0.02em]">{room.name}</h3>
                 <ul className="mt-8 space-y-4">
                   {room.items.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-[17px] text-muted-foreground">
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 text-[17px] text-muted-foreground"
+                    >
                       <span className="mt-2.5 h-px w-6 shrink-0 bg-primary" />
                       {item}
                     </li>
