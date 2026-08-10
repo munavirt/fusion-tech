@@ -1,213 +1,239 @@
-self.__SERVER_FILES_MANIFEST = {
-  version: 1,
-  config: {
-    env: {},
-    webpack: null,
-    typescript: {
-      ignoreBuildErrors: false,
+self.__SERVER_FILES_MANIFEST={
+  "version": 1,
+  "config": {
+    "env": {},
+    "webpack": null,
+    "typescript": {
+      "ignoreBuildErrors": false
     },
-    typedRoutes: false,
-    distDir: ".next",
-    cleanDistDir: true,
-    assetPrefix: "",
-    cacheMaxMemorySize: 52428800,
-    configOrigin: "next.config.mjs",
-    useFileSystemPublicRoutes: true,
-    generateEtags: true,
-    pageExtensions: ["tsx", "ts", "jsx", "js"],
-    instrumentationClientInject: [],
-    poweredByHeader: true,
-    compress: true,
-    images: {
-      deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-      imageSizes: [32, 48, 64, 96, 128, 256, 384],
-      path: "/_next/image",
-      loader: "default",
-      loaderFile: "",
-      domains: [],
-      disableStaticImages: false,
-      minimumCacheTTL: 14400,
-      formats: ["image/webp"],
-      maximumRedirects: 3,
-      maximumResponseBody: 50000000,
-      dangerouslyAllowLocalIP: false,
-      dangerouslyAllowSVG: false,
-      contentSecurityPolicy: "script-src 'none'; frame-src 'none'; sandbox;",
-      contentDispositionType: "attachment",
-      localPatterns: [
-        {
-          pathname: "**",
-          search: "",
-        },
+    "typedRoutes": false,
+    "distDir": ".next",
+    "cleanDistDir": true,
+    "assetPrefix": "",
+    "cacheMaxMemorySize": 52428800,
+    "configOrigin": "next.config.mjs",
+    "useFileSystemPublicRoutes": true,
+    "generateEtags": true,
+    "pageExtensions": [
+      "tsx",
+      "ts",
+      "jsx",
+      "js"
+    ],
+    "instrumentationClientInject": [],
+    "poweredByHeader": true,
+    "compress": true,
+    "images": {
+      "deviceSizes": [
+        640,
+        750,
+        828,
+        1080,
+        1200,
+        1920,
+        2048,
+        3840
       ],
-      remotePatterns: [],
-      qualities: [75],
-      unoptimized: false,
-      customCacheHandler: false,
+      "imageSizes": [
+        32,
+        48,
+        64,
+        96,
+        128,
+        256,
+        384
+      ],
+      "path": "/_next/image",
+      "loader": "default",
+      "loaderFile": "",
+      "domains": [],
+      "disableStaticImages": false,
+      "minimumCacheTTL": 14400,
+      "formats": [
+        "image/webp"
+      ],
+      "maximumRedirects": 3,
+      "maximumResponseBody": 50000000,
+      "dangerouslyAllowLocalIP": false,
+      "dangerouslyAllowSVG": false,
+      "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
+      "contentDispositionType": "attachment",
+      "localPatterns": [
+        {
+          "pathname": "**",
+          "search": ""
+        }
+      ],
+      "remotePatterns": [],
+      "qualities": [
+        75
+      ],
+      "unoptimized": false,
+      "customCacheHandler": false
     },
-    devIndicators: {
-      position: "bottom-left",
+    "devIndicators": {
+      "position": "bottom-left"
     },
-    onDemandEntries: {
-      maxInactiveAge: 60000,
-      pagesBufferLength: 5,
+    "onDemandEntries": {
+      "maxInactiveAge": 60000,
+      "pagesBufferLength": 5
     },
-    basePath: "",
-    sassOptions: {},
-    trailingSlash: false,
-    i18n: null,
-    productionBrowserSourceMaps: false,
-    excludeDefaultMomentLocales: true,
-    reactProductionProfiling: false,
-    reactStrictMode: true,
-    reactMaxHeadersLength: 6000,
-    httpAgentOptions: {
-      keepAlive: true,
+    "basePath": "",
+    "sassOptions": {},
+    "trailingSlash": false,
+    "i18n": null,
+    "productionBrowserSourceMaps": false,
+    "excludeDefaultMomentLocales": true,
+    "reactProductionProfiling": false,
+    "reactStrictMode": true,
+    "reactMaxHeadersLength": 6000,
+    "httpAgentOptions": {
+      "keepAlive": true
     },
-    logging: {
-      serverFunctions: true,
-      browserToTerminal: "warn",
+    "logging": {
+      "serverFunctions": true,
+      "browserToTerminal": "warn"
     },
-    compiler: {},
-    expireTime: 31536000,
-    staticPageGenerationTimeout: 60,
-    modularizeImports: {
+    "compiler": {},
+    "expireTime": 31536000,
+    "staticPageGenerationTimeout": 60,
+    "modularizeImports": {
       "@mui/icons-material": {
-        transform: "@mui/icons-material/{{member}}",
+        "transform": "@mui/icons-material/{{member}}"
       },
-      lodash: {
-        transform: "lodash/{{member}}",
-      },
+      "lodash": {
+        "transform": "lodash/{{member}}"
+      }
     },
-    outputFileTracingRoot: "/Users/munavirt/Desktop/fusionTech/future-living copy",
-    enablePrerenderSourceMaps: true,
-    cacheComponents: false,
-    cacheLife: {
-      default: {
-        stale: 300,
-        revalidate: 900,
-        expire: 4294967294,
+    "outputFileTracingRoot": "/Users/munavirt/Desktop/fusionTech/future-living copy",
+    "enablePrerenderSourceMaps": true,
+    "cacheComponents": false,
+    "cacheLife": {
+      "default": {
+        "stale": 300,
+        "revalidate": 900,
+        "expire": 4294967294
       },
-      seconds: {
-        stale: 30,
-        revalidate: 1,
-        expire: 60,
+      "seconds": {
+        "stale": 30,
+        "revalidate": 1,
+        "expire": 60
       },
-      minutes: {
-        stale: 300,
-        revalidate: 60,
-        expire: 3600,
+      "minutes": {
+        "stale": 300,
+        "revalidate": 60,
+        "expire": 3600
       },
-      hours: {
-        stale: 300,
-        revalidate: 3600,
-        expire: 86400,
+      "hours": {
+        "stale": 300,
+        "revalidate": 3600,
+        "expire": 86400
       },
-      days: {
-        stale: 300,
-        revalidate: 86400,
-        expire: 604800,
+      "days": {
+        "stale": 300,
+        "revalidate": 86400,
+        "expire": 604800
       },
-      weeks: {
-        stale: 300,
-        revalidate: 604800,
-        expire: 2592000,
+      "weeks": {
+        "stale": 300,
+        "revalidate": 604800,
+        "expire": 2592000
       },
-      max: {
-        stale: 300,
-        revalidate: 2592000,
-        expire: 31536000,
-      },
+      "max": {
+        "stale": 300,
+        "revalidate": 2592000,
+        "expire": 31536000
+      }
     },
-    cacheHandlers: {},
-    experimental: {
-      appNewScrollHandler: true,
-      coldCacheBadge: false,
-      devValidationWorker: true,
-      useSkewCookie: false,
-      cssChunking: true,
-      multiZoneDraftMode: false,
-      appNavFailHandling: false,
-      prerenderEarlyExit: true,
-      serverMinification: true,
-      linkNoTouchStart: false,
-      caseSensitiveRoutes: false,
-      cachedNavigations: false,
-      dynamicOnHover: false,
-      useOffline: false,
-      varyParams: true,
-      optimisticRouting: true,
-      instrumentationClientRouterTransitionEvents: false,
-      prefetchInlining: {
-        maxSize: 2048,
-        maxBundleSize: 10240,
+    "cacheHandlers": {},
+    "experimental": {
+      "appNewScrollHandler": true,
+      "coldCacheBadge": false,
+      "devValidationWorker": true,
+      "useSkewCookie": false,
+      "cssChunking": true,
+      "multiZoneDraftMode": false,
+      "appNavFailHandling": false,
+      "prerenderEarlyExit": true,
+      "serverMinification": true,
+      "linkNoTouchStart": false,
+      "caseSensitiveRoutes": false,
+      "cachedNavigations": false,
+      "dynamicOnHover": false,
+      "useOffline": false,
+      "varyParams": true,
+      "optimisticRouting": true,
+      "instrumentationClientRouterTransitionEvents": false,
+      "prefetchInlining": {
+        "maxSize": 2048,
+        "maxBundleSize": 10240
       },
-      preloadEntriesOnStart: true,
-      clientRouterFilter: true,
-      clientRouterFilterRedirects: false,
-      fetchCacheKeyPrefix: "",
-      proxyPrefetch: "flexible",
-      optimisticClientCache: true,
-      manualClientBasePath: false,
-      cpus: 9,
-      memoryBasedWorkersCount: false,
-      imgOptConcurrency: null,
-      imgOptOperationCache: null,
-      imgOptTimeoutInSeconds: 7,
-      imgOptMaxInputPixels: 268402689,
-      imgOptSequentialRead: null,
-      isrFlushToDisk: true,
-      workerThreads: false,
-      optimizeCss: false,
-      nextScriptWorkers: false,
-      scrollRestoration: false,
-      externalDir: false,
-      devMemoryThresholdRestart: true,
-      disableOptimizedLoading: false,
-      gzipSize: true,
-      craCompat: false,
-      esmExternals: true,
-      fullySpecified: false,
-      swcTraceProfiling: false,
-      forceSwcTransforms: false,
-      requestInsights: false,
-      largePageDataBytes: 128000,
-      typedEnv: false,
-      parallelServerCompiles: false,
-      parallelServerBuildTraces: false,
-      ppr: false,
-      authInterrupts: false,
-      webpackMemoryOptimizations: false,
-      optimizeServerReact: true,
-      strictRouteTypes: false,
-      useTypeScriptCli: true,
-      removeUncaughtErrorAndRejectionListeners: false,
-      validateRSCRequestHeaders: true,
-      staleTimes: {
-        dynamic: 0,
-        static: 300,
+      "preloadEntriesOnStart": true,
+      "clientRouterFilter": true,
+      "clientRouterFilterRedirects": false,
+      "fetchCacheKeyPrefix": "",
+      "proxyPrefetch": "flexible",
+      "optimisticClientCache": true,
+      "manualClientBasePath": false,
+      "cpus": 9,
+      "memoryBasedWorkersCount": false,
+      "imgOptConcurrency": null,
+      "imgOptOperationCache": null,
+      "imgOptTimeoutInSeconds": 7,
+      "imgOptMaxInputPixels": 268402689,
+      "imgOptSequentialRead": null,
+      "isrFlushToDisk": true,
+      "workerThreads": false,
+      "optimizeCss": false,
+      "nextScriptWorkers": false,
+      "scrollRestoration": false,
+      "externalDir": false,
+      "devMemoryThresholdRestart": true,
+      "disableOptimizedLoading": false,
+      "gzipSize": true,
+      "craCompat": false,
+      "esmExternals": true,
+      "fullySpecified": false,
+      "swcTraceProfiling": false,
+      "forceSwcTransforms": false,
+      "requestInsights": false,
+      "largePageDataBytes": 128000,
+      "typedEnv": false,
+      "parallelServerCompiles": false,
+      "parallelServerBuildTraces": false,
+      "ppr": false,
+      "authInterrupts": false,
+      "webpackMemoryOptimizations": false,
+      "optimizeServerReact": true,
+      "strictRouteTypes": false,
+      "useTypeScriptCli": true,
+      "removeUncaughtErrorAndRejectionListeners": false,
+      "validateRSCRequestHeaders": true,
+      "staleTimes": {
+        "dynamic": 0,
+        "static": 300
       },
-      reactDebugChannel: true,
-      serverComponentsHmrCache: true,
-      serverComponentsHmrCancellation: false,
-      staticGenerationMaxConcurrency: 8,
-      staticGenerationMinPagesPerWorker: 25,
-      transitionIndicator: false,
-      gestureTransition: false,
-      inlineCss: false,
-      useCache: false,
-      globalNotFound: false,
-      browserDebugInfoInTerminal: "warn",
-      lockDistDir: true,
-      proxyClientMaxBodySize: 10485760,
-      hideLogsAfterAbort: false,
-      mcpServer: true,
-      turbopackFileSystemCacheForDev: true,
-      turbopackFileSystemCacheForBuild: true,
-      turbopackInferModuleSideEffects: true,
-      turbopackPluginRuntimeStrategy: "childProcesses",
-      turbopackMemoryEvictionMode: "auto",
-      optimizePackageImports: [
+      "reactDebugChannel": true,
+      "serverComponentsHmrCache": true,
+      "serverComponentsHmrCancellation": false,
+      "staticGenerationMaxConcurrency": 8,
+      "staticGenerationMinPagesPerWorker": 25,
+      "transitionIndicator": false,
+      "gestureTransition": false,
+      "inlineCss": false,
+      "useCache": false,
+      "globalNotFound": false,
+      "browserDebugInfoInTerminal": "warn",
+      "lockDistDir": true,
+      "proxyClientMaxBodySize": 10485760,
+      "hideLogsAfterAbort": false,
+      "mcpServer": true,
+      "turbopackFileSystemCacheForDev": true,
+      "turbopackFileSystemCacheForBuild": true,
+      "turbopackInferModuleSideEffects": true,
+      "turbopackPluginRuntimeStrategy": "childProcesses",
+      "turbopackMemoryEvictionMode": "auto",
+      "optimizePackageImports": [
         "lucide-react",
         "date-fns",
         "lodash-es",
@@ -282,28 +308,27 @@ self.__SERVER_FILES_MANIFEST = {
         "react-icons/tfi",
         "react-icons/ti",
         "react-icons/vsc",
-        "react-icons/wi",
+        "react-icons/wi"
       ],
-      useCacheTimeout: 54,
-      instantInsights: {
-        validationLevel: "warning",
+      "useCacheTimeout": 54,
+      "instantInsights": {
+        "validationLevel": "warning"
       },
-      trustHostHeader: false,
-      isExperimentalCompile: false,
+      "trustHostHeader": false,
+      "isExperimentalCompile": false
     },
-    htmlLimitedBots:
-      "[\\w-]+-Google|Google-[\\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight",
-    bundlePagesRouterDependencies: false,
-    configFileName: "next.config.mjs",
-    repoRoot: "/Users/munavirt/Desktop/fusionTech/future-living copy",
-    turbopack: {
-      root: "/Users/munavirt/Desktop/fusionTech/future-living copy",
+    "htmlLimitedBots": "[\\w-]+-Google|Google-[\\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight",
+    "bundlePagesRouterDependencies": false,
+    "configFileName": "next.config.mjs",
+    "repoRoot": "/Users/munavirt/Desktop/fusionTech/future-living copy",
+    "turbopack": {
+      "root": "/Users/munavirt/Desktop/fusionTech/future-living copy"
     },
-    distDirRoot: ".next",
+    "distDirRoot": ".next"
   },
-  appDir: "/Users/munavirt/Desktop/fusionTech/future-living copy",
-  relativeAppDir: "",
-  files: [
+  "appDir": "/Users/munavirt/Desktop/fusionTech/future-living copy",
+  "relativeAppDir": "",
+  "files": [
     ".next/package.json",
     ".next/routes-manifest.json",
     ".next/server/pages-manifest.json",
@@ -320,7 +345,7 @@ self.__SERVER_FILES_MANIFEST = {
     ".next/BUILD_ID",
     ".next/server/next-font-manifest.js",
     ".next/server/next-font-manifest.json",
-    ".next/required-server-files.json",
+    ".next/required-server-files.json"
   ],
-  ignore: [],
-};
+  "ignore": []
+}

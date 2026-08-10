@@ -118,14 +118,14 @@ export function Testimonial() {
             opacity: 1,
             y: 0,
           });
-          if (bgImages[0]) gsap.set(bgImages[0], { opacity: 0.05 });
+          if (bgImages[0]!) gsap.set(bgImages[0]!, { opacity: 0.05 });
         } else {
           gsap.set(quoteWords, { yPercent: 110 });
           gsap.set([name, project, source, assoc].filter(Boolean), { opacity: 0, y: 35 });
-          if (bgImages[i]) gsap.set(bgImages[i], { opacity: 0 });
+          if (bgImages[i]!) gsap.set(bgImages[i]!, { opacity: 0 });
         }
 
-        if (indicators[i]) gsap.set(indicators[i], { width: "0%" });
+        if (indicators[i]!) gsap.set(indicators[i]!, { width: "0%" });
       });
 
       // Autoplay Timeline setup
@@ -135,8 +135,8 @@ export function Testimonial() {
         const nextIdx = (i + 1) % testimonials.length;
 
         // 1. Hold for 4.8 seconds and fill indicator
-        if (indicators[i]) {
-          masterTl.to(indicators[i], { width: "100%", duration: 4.8, ease: "none" }, `start-${i}`);
+        if (indicators[i]!) {
+          masterTl.to(indicators[i]!, { width: "100%", duration: 4.8, ease: "none" }, `start-${i}`);
         } else {
           masterTl.to({}, { duration: 4.8 }, `start-${i}`);
         }
@@ -145,11 +145,11 @@ export function Testimonial() {
         const transitionLabel = `transition-${i}`;
         masterTl.addLabel(transitionLabel);
 
-        const outQuoteWords = gsap.utils.toArray(".quote-word", articles[i]);
-        const outName = articles[i].querySelector("cite");
-        const outProject = articles[i].querySelector(".t-project");
-        const outSource = articles[i].querySelector(".t-source");
-        const outAssoc = articles[i].querySelector(".t-assoc");
+        const outQuoteWords = gsap.utils.toArray(".quote-word", articles[i]!);
+        const outName = articles[i]!.querySelector("cite");
+        const outProject = articles[i]!.querySelector(".t-project");
+        const outSource = articles[i]!.querySelector(".t-source");
+        const outAssoc = articles[i]!.querySelector(".t-assoc");
 
         // Outgoing elements
         masterTl.to(
@@ -158,32 +158,32 @@ export function Testimonial() {
           transitionLabel,
         );
         masterTl.to(
-          [outName, outProject, outSource, outAssoc].filter(Boolean),
+          [outName!, outProject, outSource, outAssoc].filter(Boolean),
           { opacity: 0, y: -20, duration: 0.6, ease: "power3.inOut", stagger: 0.05 },
           `${transitionLabel}+=0.2`,
         );
 
-        if (bgImages[i]) {
-          masterTl.to(bgImages[i], { opacity: 0, duration: 0.8 }, transitionLabel);
+        if (bgImages[i]!) {
+          masterTl.to(bgImages[i]!, { opacity: 0, duration: 0.8 }, transitionLabel);
         }
 
         // Reset indicator immediately after it goes out
-        if (indicators[i]) {
-          masterTl.set(indicators[i], { width: "0%" }, `${transitionLabel}+=1`);
+        if (indicators[i]!) {
+          masterTl.set(indicators[i]!, { width: "0%" }, `${transitionLabel}+=1`);
         }
 
         // Incoming elements setup
-        const inQuoteWords = gsap.utils.toArray(".quote-word", articles[nextIdx]);
-        const inName = articles[nextIdx].querySelector("cite");
-        const inProject = articles[nextIdx].querySelector(".t-project");
-        const inSource = articles[nextIdx].querySelector(".t-source");
-        const inAssoc = articles[nextIdx].querySelector(".t-assoc");
+        const inQuoteWords = gsap.utils.toArray(".quote-word", articles[nextIdx]!);
+        const inName = articles[nextIdx]!.querySelector("cite");
+        const inProject = articles[nextIdx]!.querySelector(".t-project");
+        const inSource = articles[nextIdx]!.querySelector(".t-source");
+        const inAssoc = articles[nextIdx]!.querySelector(".t-assoc");
 
-        masterTl.set(articles[i], { pointerEvents: "none" }, transitionLabel);
-        masterTl.set(articles[nextIdx], { pointerEvents: "auto", opacity: 1 }, transitionLabel);
+        masterTl.set(articles[i]!, { pointerEvents: "none" }, transitionLabel);
+        masterTl.set(articles[nextIdx]!, { pointerEvents: "auto", opacity: 1 }, transitionLabel);
         masterTl.set(inQuoteWords, { yPercent: 110 }, transitionLabel);
         masterTl.set(
-          [inName, inProject, inSource, inAssoc].filter(Boolean),
+          [inName!, inProject, inSource, inAssoc].filter(Boolean),
           { opacity: 0, y: 20 },
           transitionLabel,
         );
@@ -205,8 +205,8 @@ export function Testimonial() {
           `${transitionLabel}+=0.55`,
         );
 
-        if (bgImages[nextIdx]) {
-          masterTl.to(bgImages[nextIdx], { opacity: 0.05, duration: 1 }, transitionLabel);
+        if (bgImages[nextIdx]!) {
+          masterTl.to(bgImages[nextIdx]!, { opacity: 0.05, duration: 1 }, transitionLabel);
         }
       });
 
@@ -263,11 +263,11 @@ export function Testimonial() {
         );
       });
 
-      const fQuoteWords = gsap.utils.toArray(".quote-word", articles[0]);
-      const fName = articles[0].querySelector("cite");
-      const fProject = articles[0].querySelector(".t-project");
-      const fSource = articles[0].querySelector(".t-source");
-      const fAssoc = articles[0].querySelector(".t-assoc");
+      const fQuoteWords = gsap.utils.toArray(".quote-word", articles[0]!);
+      const fName = articles[0]!.querySelector("cite");
+      const fProject = articles[0]!.querySelector(".t-project");
+      const fSource = articles[0]!.querySelector(".t-source");
+      const fAssoc = articles[0]!.querySelector(".t-assoc");
 
       introTl.fromTo(
         fQuoteWords,
@@ -288,9 +288,9 @@ export function Testimonial() {
         0.7,
       );
 
-      if (bgImages[0]) {
+      if (bgImages[0]!) {
         introTl.fromTo(
-          bgImages[0],
+          bgImages[0]!,
           { opacity: 0, scale: 1.05 },
           { opacity: 0.05, scale: 1, duration: 2, ease: "power2.out" },
           0.2,

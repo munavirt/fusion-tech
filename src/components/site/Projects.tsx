@@ -76,7 +76,7 @@ export function Projects() {
 
       // Initial States
       gsap.set(infos, { pointerEvents: "none" });
-      gsap.set(infos[0], { pointerEvents: "auto" });
+      gsap.set(infos[0]!, { pointerEvents: "auto" });
 
       infos.forEach((info, i) => {
         const number = info.querySelector(".p-num");
@@ -85,13 +85,13 @@ export function Projects() {
         const link = info.querySelector(".p-link");
 
         if (i !== 0) {
-          gsap.set([number, title, meta, link], { opacity: 0, y: 20 });
-          gsap.set(containers[i], { opacity: 0, clipPath: "inset(100% 0% 0% 0%)" });
-          gsap.set(images[i], { scale: 1.06, filter: "blur(4px)" });
+          gsap.set([number!, title!, meta!, link!], { opacity: 0, y: 20 });
+          gsap.set(containers[i]!, { opacity: 0, clipPath: "inset(100% 0% 0% 0%)" });
+          gsap.set(images[i]!, { scale: 1.06, filter: "blur(4px)" });
         } else {
-          gsap.set([number, title, meta, link], { opacity: 1, y: 0 });
-          gsap.set(containers[i], { opacity: 1, clipPath: "inset(0% 0% 0% 0%)" });
-          gsap.set(images[i], { scale: 1, filter: "blur(0px)" });
+          gsap.set([number!, title!, meta!, link!], { opacity: 1, y: 0 });
+          gsap.set(containers[i]!, { opacity: 1, clipPath: "inset(0% 0% 0% 0%)" });
+          gsap.set(images[i]!, { scale: 1, filter: "blur(0px)" });
         }
       });
 
@@ -112,53 +112,53 @@ export function Projects() {
         tl.addLabel(`project-${i}`);
 
         // Active state animations
-        tl.to(indicators[i], { height: "100%", duration: 1, ease: "none" }, `project-${i}`);
-        tl.to(images[i], { scale: 1.035, duration: 1, ease: "none" }, `project-${i}`);
+        tl.to(indicators[i]!, { height: "100%", duration: 1, ease: "none" }, `project-${i}`);
+        tl.to(images[i]!, { scale: 1.035, duration: 1, ease: "none" }, `project-${i}`);
 
         if (!isLast) {
           tl.addLabel(`transition-${i}`);
 
           // Pointer events toggle
-          tl.set(infos[i], { pointerEvents: "none" }, `transition-${i}`);
-          tl.set(infos[nextIdx], { pointerEvents: "auto" }, `transition-${i}`);
+          tl.set(infos[i]!, { pointerEvents: "none" }, `transition-${i}`);
+          tl.set(infos[nextIdx]!, { pointerEvents: "auto" }, `transition-${i}`);
 
           // Outgoing Info
-          const outNum = infos[i].querySelector(".p-num");
-          const outTitle = infos[i].querySelector(".p-title");
-          const outMeta = infos[i].querySelector(".p-meta");
-          const outLink = infos[i].querySelector(".p-link");
+          const outNum = infos[i]!.querySelector(".p-num");
+          const outTitle = infos[i]!.querySelector(".p-title");
+          const outMeta = infos[i]!.querySelector(".p-meta");
+          const outLink = infos[i]!.querySelector(".p-link");
 
-          tl.to(outNum, { y: -12, opacity: 0, duration: 0.4 }, `transition-${i}`);
-          tl.to(outTitle, { y: -20, opacity: 0, duration: 0.4 }, `transition-${i}+=0.05`);
-          tl.to(outMeta, { y: -10, opacity: 0, duration: 0.4 }, `transition-${i}+=0.1`);
-          tl.to(outLink, { y: -10, opacity: 0, duration: 0.4 }, `transition-${i}+=0.15`);
+          tl.to(outNum!, { y: -12, opacity: 0, duration: 0.4 }, `transition-${i}`);
+          tl.to(outTitle!, { y: -20, opacity: 0, duration: 0.4 }, `transition-${i}+=0.05`);
+          tl.to(outMeta!, { y: -10, opacity: 0, duration: 0.4 }, `transition-${i}+=0.1`);
+          tl.to(outLink!, { y: -10, opacity: 0, duration: 0.4 }, `transition-${i}+=0.15`);
 
           // Outgoing Image
           tl.to(
-            containers[i],
+            containers[i]!,
             { yPercent: -5, opacity: 0, duration: 0.8, ease: "power2.inOut" },
             `transition-${i}`,
           );
 
           // Incoming Info
-          const inNum = infos[nextIdx].querySelector(".p-num");
-          const inTitle = infos[nextIdx].querySelector(".p-title");
-          const inMeta = infos[nextIdx].querySelector(".p-meta");
-          const inLink = infos[nextIdx].querySelector(".p-link");
+          const inNum = infos[nextIdx]!.querySelector(".p-num");
+          const inTitle = infos[nextIdx]!.querySelector(".p-title");
+          const inMeta = infos[nextIdx]!.querySelector(".p-meta");
+          const inLink = infos[nextIdx]!.querySelector(".p-link");
 
-          tl.to(inNum, { y: 0, opacity: 1, duration: 0.4 }, `transition-${i}+=0.2`);
-          tl.to(inTitle, { y: 0, opacity: 1, duration: 0.4 }, `transition-${i}+=0.25`);
-          tl.to(inMeta, { y: 0, opacity: 1, duration: 0.4 }, `transition-${i}+=0.3`);
-          tl.to(inLink, { y: 0, opacity: 1, duration: 0.4 }, `transition-${i}+=0.35`);
+          tl.to(inNum!, { y: 0, opacity: 1, duration: 0.4 }, `transition-${i}+=0.2`);
+          tl.to(inTitle!, { y: 0, opacity: 1, duration: 0.4 }, `transition-${i}+=0.25`);
+          tl.to(inMeta!, { y: 0, opacity: 1, duration: 0.4 }, `transition-${i}+=0.3`);
+          tl.to(inLink!, { y: 0, opacity: 1, duration: 0.4 }, `transition-${i}+=0.35`);
 
           // Incoming Image
           tl.to(
-            containers[nextIdx],
+            containers[nextIdx]!,
             { opacity: 1, clipPath: "inset(0% 0% 0% 0%)", duration: 0.8, ease: "power2.inOut" },
             `transition-${i}`,
           );
           tl.to(
-            images[nextIdx],
+            images[nextIdx]!,
             { scale: 1, filter: "blur(0px)", duration: 0.8, ease: "power2.out" },
             `transition-${i}`,
           );
