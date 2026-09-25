@@ -4,51 +4,8 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
-import p1 from "@/assets/proj-1.jpg";
-import p2 from "@/assets/proj-2.jpg";
-import p3 from "@/assets/proj-3.jpg";
-import p4 from "@/assets/proj-4.jpg";
-import p5 from "@/assets/proj-5.jpg";
-import p6 from "@/assets/proj-6.jpg";
-
-const projects = [
-  {
-    img: p1,
-    name: "Skyline Penthouse",
-    place: "Bandra West, Mumbai",
-    systems: "Lighting · Climate · AV",
-  },
-  {
-    img: p2,
-    name: "The Arbor Hotel",
-    place: "Panjim, Goa",
-    systems: "Guest rooms · Lobby AV · Access",
-  },
-  {
-    img: p3,
-    name: "Villa Serein",
-    place: "Whitefield, Bengaluru",
-    systems: "Shading · Lighting · Security",
-  },
-  {
-    img: p4,
-    name: "Nori Dining",
-    place: "Koregaon Park, Pune",
-    systems: "Ambient scenes · Audio zones",
-  },
-  {
-    img: p5,
-    name: "Meridian Flagship",
-    place: "Connaught Place, Delhi",
-    systems: "Track lighting · CCTV",
-  },
-  {
-    img: p6,
-    name: "Corporate HQ Retrofit",
-    place: "HITEC City, Hyderabad",
-    systems: "Rooms · Access · Monitoring",
-  },
-];
+import { projectsData } from "@/data/projectsData";
+const projects = projectsData;
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -99,7 +56,8 @@ export function Projects() {
         scrollTrigger: {
           trigger: desktopPinRef.current,
           start: "top top",
-          end: `+=${projects.length * 100}%`,
+          // One scroll step per transition (n projects = n-1 transitions)
+          end: `+=${(projects.length - 1) * 100}%`,
           pin: true,
           scrub: 1,
         },
@@ -237,14 +195,14 @@ export function Projects() {
                     <span className="text-muted-foreground/70">0{projects.length}</span>
                   </div>
                   <h3 className="p-title text-4xl lg:text-5xl font-medium font-display tracking-tight mb-4 text-foreground">
-                    {p.name}
+                    {p.title}
                   </h3>
                   <div className="p-meta flex flex-col gap-1.5 text-muted-foreground mb-10">
-                    <p>{p.place}</p>
+                    <p>{p.location}</p>
                     <p className="text-[13px] text-muted-foreground/70 tracking-wide uppercase">{p.systems}</p>
                   </div>
                   <a
-                    href={`/projects/${p.name.toLowerCase().replace(/ /g, "-")}`}
+                    href="/projects"
                     className="p-link group inline-flex items-center text-xs font-semibold tracking-[0.1em] text-foreground uppercase w-fit relative pb-2"
                   >
                     VIEW PROJECT
@@ -264,13 +222,24 @@ export function Projects() {
             {projects.map((p, i) => (
               <div key={i} className="desktop-img-container absolute inset-0 overflow-hidden">
                 <img
-                  src={p.img.src}
-                  alt={`Fusion Tech project in ${p.place}`}
+                  src={p.image.src}
+                  alt={`Fusion Tech project in ${p.location}`}
                   className="desktop-img w-full h-full object-cover"
                 />
               </div>
             ))}
           </div>
+        </div>
+        
+        {/* VIEW ALL PROJECTS CTA (Desktop) */}
+        <div className="absolute bottom-12 right-12 z-20">
+          <a
+            href="/projects"
+            className="group inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-8 py-4 text-[13px] font-semibold uppercase tracking-wider text-foreground transition-all duration-300 hover:border-primary/60 hover:bg-secondary/60"
+          >
+            View All Projects
+            <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
         </div>
       </div>
       {/* MOBILE VERTICAL LAYOUT */}
@@ -291,8 +260,8 @@ export function Projects() {
             <article key={i} className="mobile-article flex flex-col">
               <div className="w-full aspect-[4/5] relative rounded-[16px] overflow-hidden bg-secondary mb-8 shadow-sm">
                 <img
-                  src={p.img.src}
-                  alt={`Fusion Tech project in ${p.place}`}
+                  src={p.image.src}
+                  alt={`Fusion Tech project in ${p.location}`}
                   className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
                   loading={i === 0 ? "eager" : "lazy"}
                 />
@@ -303,16 +272,16 @@ export function Projects() {
                 <span className="text-muted-foreground/70">0{projects.length}</span>
               </div>
               <h3 className="text-3xl font-medium font-display tracking-tight mb-3 text-foreground">
-                {p.name}
+                {p.title}
               </h3>
               <div className="flex flex-col gap-1 text-muted-foreground mb-8 text-sm">
-                <p>{p.place}</p>
+                <p>{p.location}</p>
                 <p className="text-[13px] text-muted-foreground/70 uppercase tracking-wide mt-1">
                   {p.systems}
                 </p>
               </div>
               <a
-                href={`/projects/${p.name.toLowerCase().replace(/ /g, "-")}`}
+                href="/projects"
                 className="group inline-flex items-center text-xs font-semibold tracking-[0.1em] text-foreground uppercase w-fit relative pb-2"
               >
                 VIEW PROJECT
@@ -321,6 +290,16 @@ export function Projects() {
               </a>
             </article>
           ))}
+          
+          <div className="flex justify-center mt-8">
+            <a
+              href="/projects"
+              className="group inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-8 py-4 text-[13px] font-semibold uppercase tracking-wider text-foreground transition-all duration-300 hover:border-primary/60 hover:bg-secondary/60"
+            >
+              View All Projects
+              <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

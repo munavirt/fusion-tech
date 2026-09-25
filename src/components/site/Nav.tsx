@@ -1,20 +1,23 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Menu, X, Sun, MoonStar, Home, Info, Cpu, Image, Mail } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X, Sun, MoonStar, Home, Info, Cpu, Layers, Mail } from "lucide-react";
 import { useEnvironment } from "@/contexts/EnvironmentContext";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { label: "Home", href: "#home", icon: Home },
-  { label: "About", href: "#about", icon: Info },
-  { label: "Solutions", href: "#solutions", icon: Cpu },
-  { label: "Projects", href: "#projects", icon: Image },
-  { label: "Contact", href: "#contact", icon: Mail },
+  { label: "Home", href: "/", icon: Home },
+  { label: "About Us", href: "/about", icon: Info },
+  { label: "Solutions", href: "/solutions", icon: Cpu },
+  { label: "Projects", href: "/projects", icon: Layers },
+  { label: "Contact", href: "/contact", icon: Mail },
 ];
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   const { mode, setMode, isTransitioning } = useEnvironment();
   const isNight = mode === "night";
 
@@ -35,29 +38,50 @@ export function Nav() {
       )}
     >
       <nav className="mx-auto flex w-[min(100%-48px,1440px)] md:w-[min(100%-96px,1440px)] items-center justify-between">
-        <a href="#home" className="flex items-center gap-2.5">
+        <Link href="/" className="flex items-center gap-2.5">
           <span
             className={cn(
-              "font-display font-extrabold tracking-tight transition-all",
-              scrolled ? "text-base" : "text-lg",
+              "font-display font-bold tracking-tight transition-all uppercase",
+              scrolled ? "text-[15px]" : "text-[17px]",
             )}
           >
-            FusionTech<span className="text-primary"> Expert</span>
+            FusionTech<span className="text-primary font-bold"> Experts</span>
           </span>
-        </a>
+        </Link>
 
-        <ul className="hidden items-center gap-10 md:flex">
-          {links.map((l) => (
-            <li key={l.label}>
-              <a
-                href={l.href}
-                className="group story-link text-[15px] text-muted-foreground transition-colors hover:text-foreground flex items-center gap-1.5"
-              >
-                <l.icon className="size-4 opacity-70 group-hover:opacity-100 transition-opacity" />
-                {l.label}
-              </a>
-            </li>
-          ))}
+        {/* Desktop Links with Related Icons and Bold Font */}
+        <ul className="hidden items-center gap-8 lg:gap-10 md:flex">
+          {links.map((l) => {
+            const isActive =
+              l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
+            return (
+              <li key={l.label}>
+                <Link
+                  href={l.href}
+                  className={cn(
+                    "group story-link text-[13px] uppercase tracking-wider font-bold transition-colors flex items-center gap-2",
+                    isActive
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  <l.icon
+                    className={cn(
+                      "size-3.5 transition-colors shrink-0",
+                      isActive
+                        ? "text-primary"
+                        : "text-muted-foreground/70 group-hover:text-foreground",
+                    )}
+                    strokeWidth={2}
+                  />
+                  <span>{l.label}</span>
+                  {isActive && (
+                    <span className="size-1 rounded-full bg-primary" />
+                  )}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="flex items-center gap-3">
@@ -77,12 +101,12 @@ export function Nav() {
               <Sun className="size-5" strokeWidth={1.5} />
             )}
           </button>
-          <a
-            href="#contact"
-            className="hidden rounded-full bg-primary px-6 py-2.5 text-[15px] font-medium text-primary-foreground shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-deep hover:shadow-lift md:inline-flex"
+          <Link
+            href="/contact"
+            className="hidden rounded-full bg-primary px-7 py-3 text-[13px] uppercase tracking-wider font-bold text-primary-foreground shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-deep hover:shadow-lift md:inline-flex"
           >
-            Get Quote
-          </a>
+            Let&apos;s Talk &rarr;
+          </Link>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
@@ -100,26 +124,39 @@ export function Nav() {
       {open && (
         <div className="mx-6 mt-3 rounded-[20px] border border-border bg-background/95 p-6 backdrop-blur-xl md:hidden">
           <ul className="flex flex-col gap-5">
-            {links.map((l) => (
-              <li key={l.label}>
-                <a
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="text-base text-foreground flex items-center gap-3"
-                >
-                  <l.icon className="size-5 text-muted-foreground" />
-                  {l.label}
-                </a>
-              </li>
-            ))}
+            {links.map((l) => {
+              const isActive =
+                l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
+              return (
+                <li key={l.label}>
+                  <Link
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className={cn(
+                      "text-base font-bold flex items-center gap-3 transition-colors",
+                      isActive ? "text-primary" : "text-foreground",
+                    )}
+                  >
+                    <l.icon
+                      className={cn(
+                        "size-5 shrink-0",
+                        isActive ? "text-primary" : "text-muted-foreground",
+                      )}
+                      strokeWidth={2}
+                    />
+                    <span>{l.label}</span>
+                  </Link>
+                </li>
+              );
+            })}
             <li>
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 onClick={() => setOpen(false)}
-                className="inline-flex rounded-full bg-primary px-6 py-2.5 text-[15px] font-medium text-primary-foreground"
+                className="inline-flex rounded-full bg-primary px-7 py-3 text-[13px] uppercase tracking-wider font-bold text-primary-foreground"
               >
-                Get Quote
-              </a>
+                Let&apos;s Talk &rarr;
+              </Link>
             </li>
             <li>
               <button
@@ -131,7 +168,7 @@ export function Nav() {
                 }}
                 aria-label={isNight ? "Switch to light mode" : "Switch to dark mode"}
                 className={cn(
-                  "flex items-center gap-2 rounded-full bg-secondary/80 px-4 py-2 text-[15px] font-medium text-foreground transition-all duration-300 hover:bg-secondary",
+                  "flex items-center gap-2 rounded-full bg-secondary/80 px-4 py-2 text-[15px] font-bold text-foreground transition-all duration-300 hover:bg-secondary",
                   isTransitioning && "opacity-70 pointer-events-none",
                 )}
               >

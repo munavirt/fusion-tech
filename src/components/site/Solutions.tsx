@@ -5,54 +5,88 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
-import imgHome from "@/assets/sol-smart-home.jpg";
-import imgSecurity from "@/assets/sol-security.jpg";
-import imgLighting from "@/assets/sol-lighting.jpg";
-import imgTheatre from "@/assets/sol-theatre.jpg";
-import imgCommercial from "@/assets/sol-commercial.jpg";
+import imgGate from "@/assets/sol-gate.jpg";
+import imgSecurityNew from "@/assets/sol-security-new.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const solutions = [
   {
     n: "01",
-    title: "Smart Home Automation",
-    copy: "One intelligent layer across lighting, climate, curtains, audio and access — controlled by app, panel or voice.",
-    features: ["Scene control", "Voice & app control", "Energy insights"],
-    image: imgHome,
-    alt: "Modern luxury villa exterior at dusk with automated exterior lighting",
+    title: "Gate & Access Automation",
+    copy:
+      "Automated gates, smart door locks and intelligent access control designed to make entrances more convenient, secure and connected.",
+    features: [
+      "Gate automation",
+      "Smart door locks",
+      "Access control",
+      "Entrance automation",
+    ],
+    image: imgGate,
+    alt:
+      "Modern residential entrance with an automated gate and smart access system",
   },
   {
     n: "02",
     title: "Security & Surveillance",
-    copy: "Discreet, always-on protection with intelligent alerts that tell you what matters and ignore what doesn't.",
-    features: ["CCTV & NVR", "Access control", "Video door phone"],
-    image: imgSecurity,
-    alt: "Modern home entrance with access control keypad and discreet camera",
+    copy:
+      "Integrated CCTV, security and alarm systems designed to help monitor properties, protect entrances and provide greater awareness of activity across connected spaces.",
+    features: [
+      "CCTV systems",
+      "Security monitoring",
+      "Alarm systems",
+      "Property surveillance",
+    ],
+    image: imgSecurityNew,
+    alt:
+      "Modern home entrance with a discreet CCTV security camera",
   },
   {
     n: "03",
-    title: "Lighting Automation",
-    copy: "Architectural lighting that shifts with the hour — warm evenings, focused mornings, effortless energy savings.",
-    features: ["Ambient scenes", "Tunable white", "Energy saving"],
-    image: imgLighting,
-    alt: "Luxury hallway with architectural linear lighting",
+    title: "Lighting & Smart Control",
+    copy:
+      "Create the right atmosphere with intelligent lighting that can be dimmed, tuned and shaped into different moods and scenes. Smart switches and connected controls make it easy to manage lighting around the way each space is used.",
+    features: [
+      "Light automation",
+      "Dimming & tuning",
+      "Mood & scene creation",
+      "Smart switches",
+      "Connected/mobile control",
+    ],
+    image: { src: "https://placehold.co/1200x900/e2e8f0/64748b?text=Lighting+%26+Smart+Control" },
+    alt:
+      "Contemporary interior with architectural lighting and smart wall switches",
   },
   {
     n: "04",
-    title: "Home Theatre",
-    copy: "Acoustically tuned cinema rooms where a single button dims the lights, closes the curtains and starts the film.",
-    features: ["Immersive sound", "Calibrated projection", "One-touch control"],
-    image: imgTheatre,
-    alt: "Private home cinema room with tiered seating and acoustic panels",
+    title: "Curtain & Climate Automation",
+    copy:
+      "Automated curtains and intelligent AC and VRF systems with centralized control, scheduled operation and temperature management designed around the comfort and routine of each space.",
+    features: [
+      "Curtain automation",
+      "AC automation",
+      "VRF system automation",
+      "Centralized climate control",
+      "Scheduled operation",
+    ],
+    image: { src: "https://placehold.co/1200x900/e2e8f0/64748b?text=Curtain+%26+Climate+Automation" },
+    alt:
+      "Luxury living room with automated curtains and climate control",
   },
   {
     n: "05",
-    title: "Commercial Automation",
-    copy: "Buildings that run themselves — meeting spaces, hospitality and retail environments managed from one dashboard.",
-    features: ["Conference rooms", "Hotels & restaurants", "Central monitoring"],
-    image: imgCommercial,
-    alt: "Modern glass-walled conference room with integrated AV display",
+    title: "Irrigation Automation",
+    copy:
+      "Keep gardens and outdoor spaces maintained with automated irrigation systems that manage watering schedules and routine water control with less manual effort.",
+    features: [
+      "Irrigation automation",
+      "Scheduled watering",
+      "Automated water control",
+      "Outdoor control",
+    ],
+    image: { src: "https://placehold.co/1200x900/e2e8f0/64748b?text=Irrigation+Automation" },
+    alt:
+      "Landscaped residential garden with an automated irrigation system",
   },
 ];
 

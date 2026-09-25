@@ -29,8 +29,8 @@ const steps = [
   },
   {
     n: "06",
-    title: "Handover & Support",
-    copy: "Full commissioning, personalized training, and remote diagnostics for the life of the system.",
+    title: "Handover, Service & Maintenance",
+    copy: "Full commissioning, personalized training, remote support and ongoing service to keep your automation systems operating reliably.",
   },
 ];
 

@@ -4,9 +4,9 @@ import gsap from "gsap";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import heroImg from "../../assets/hero-right-1.png";
 
-const line1 = ["Living,"];
-const line2 = ["quietly"];
-const line3 = ["automated."];
+const line1 = ["Home", "Automation"];
+const line2 = ["For"];
+const line3 = ["Modern", "Spaces"];
 
 const metrics = [
   { value: "12+", label: "Years of integration" },
@@ -109,12 +109,12 @@ export function Hero() {
               </p>
             </div>
 
-            <h1 className="font-display text-foreground mt-6 lg:mt-8 text-[clamp(3.2rem,12vw,5rem)] lg:text-[clamp(4rem,6.2vw,6.8rem)] leading-[0.92] lg:leading-[0.94] font-[700] tracking-[-0.055em] max-w-[620px]">
+            <h1 className="font-display text-foreground mt-6 lg:mt-8 text-[clamp(2.5rem,9vw,3.5rem)] lg:text-[clamp(3rem,4.5vw,5rem)] leading-[0.92] lg:leading-[0.94] font-[700] tracking-[-0.055em] w-full">
               {[line1, line2, line3].map((words, i) => (
                 <span key={i} className="block overflow-hidden py-[0.06em]">
                   <span
                     data-word
-                    className={i === 2 ? "text-[#2964A0] block mx-auto lg:mx-0" : "block mx-auto lg:mx-0"}
+                    className={i === 2 ? "text-[#2964A0] block mx-auto lg:mx-0 whitespace-nowrap" : "block mx-auto lg:mx-0 whitespace-nowrap"}
                   >
                     {words.join(" ")}
                   </span>
@@ -126,8 +126,7 @@ export function Hero() {
               data-sub
               className="text-muted-foreground mt-8 lg:mt-12 max-w-[470px] text-[0.85rem] leading-[1.6] mx-auto lg:mx-0"
             >
-              Lighting, climate, security and sound — designed as one calm system
-              for homes, villas and hospitality spaces.
+              Bringing lighting, climate, security, and access together into one connected, quietly automated experience for homes, villas, and hospitality spaces.
             </p>
 
             <div className="mt-8 lg:mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6">

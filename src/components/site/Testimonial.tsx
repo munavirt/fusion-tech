@@ -8,36 +8,39 @@ import p1 from "@/assets/proj-1.jpg";
 import p2 from "@/assets/proj-2.jpg";
 import p3 from "@/assets/proj-3.jpg";
 
-const testimonials = [
+import { StaticImageData } from "next/image";
+
+type TestimonialData = {
+  quote: string;
+  name: string;
+  project: string;
+  bgImage: StaticImageData;
+  source?: string;
+  projectName?: string;
+  projectNumber?: string;
+};
+
+const testimonials: TestimonialData[] = [
   {
     quote:
-      "We stopped thinking about switches. The house simply understands the time of day — and our evenings feel completely different.",
-    name: "Rohan Mehta",
-    project: "Private Residence · Bengaluru",
-    source: "5.0 on Google Reviews",
-    projectName: "Villa Serein",
-    projectNumber: "03",
-    bgImage: p3,
-  },
-  {
-    quote:
-      "[SAMPLE] The automation feels invisible yet completely transformative. It responds to our lifestyle without any complex interfaces.",
-    name: "SAMPLE / DEVELOPMENT ONLY",
-    project: "Penthouse · Mumbai",
-    source: "Google Reviews",
-    projectName: "Skyline Penthouse",
-    projectNumber: "01",
+      "Everything works quietly in the background. The automation has made everyday living much simpler.",
+    name: "Fictional Customer",
+    project: "Residential Client · KOCHI · KERALA",
     bgImage: p1,
   },
   {
     quote:
-      "[SAMPLE] Everything works quietly in the background. We don't have to think about it anymore, which is the ultimate luxury.",
-    name: "SAMPLE / DEVELOPMENT ONLY",
-    project: "Private Estate · Goa",
-    source: "Verified Client",
-    projectName: "The Arbor Hotel",
-    projectNumber: "02",
+      "From lighting to security, everything feels connected without making the home complicated.",
+    name: "Fictional Customer",
+    project: "Homeowner · CALICUT · KERALA",
     bgImage: p2,
+  },
+  {
+    quote:
+      "The system feels natural to use. It adds comfort without taking away from the simplicity of the space.",
+    name: "Fictional Customer",
+    project: "Residential Client · PALAKKAD · KERALA",
+    bgImage: p3,
   },
 ];
 
@@ -112,15 +115,16 @@ export function Testimonial() {
         const assoc = article.querySelector(".t-assoc");
 
         if (i === 0) {
-          gsap.set(article, { opacity: 1, pointerEvents: "auto" });
-          gsap.set(quoteWords, { yPercent: 0 });
+          gsap.set(article, { opacity: 1, pointerEvents: "auto", zIndex: 2 });
+          gsap.set(quoteWords, { yPercent: 0, opacity: 1 });
           gsap.set([name, project, source, assoc].filter(Boolean), {
             opacity: 1,
             y: 0,
           });
           if (bgImages[0]!) gsap.set(bgImages[0]!, { opacity: 0.05 });
         } else {
-          gsap.set(quoteWords, { yPercent: 110 });
+          gsap.set(article, { opacity: 0, pointerEvents: "none", zIndex: 1 });
+          gsap.set(quoteWords, { yPercent: 120, opacity: 0 });
           gsap.set([name, project, source, assoc].filter(Boolean), { opacity: 0, y: 35 });
           if (bgImages[i]!) gsap.set(bgImages[i]!, { opacity: 0 });
         }
@@ -154,7 +158,7 @@ export function Testimonial() {
         // Outgoing elements
         masterTl.to(
           outQuoteWords,
-          { yPercent: -110, duration: 0.6, ease: "power3.inOut", stagger: 0.015 },
+          { yPercent: -120, opacity: 0, duration: 0.6, ease: "power3.inOut", stagger: 0.015 },
           transitionLabel,
         );
         masterTl.to(
@@ -166,6 +170,10 @@ export function Testimonial() {
         if (bgImages[i]!) {
           masterTl.to(bgImages[i]!, { opacity: 0, duration: 0.8 }, transitionLabel);
         }
+
+        // Fade out the entire article and reset z-index
+        masterTl.set(articles[i]!, { zIndex: 1 }, `${transitionLabel}+=0.6`);
+        masterTl.to(articles[i]!, { opacity: 0, duration: 0.2 }, `${transitionLabel}+=0.6`);
 
         // Reset indicator immediately after it goes out
         if (indicators[i]!) {
@@ -180,8 +188,8 @@ export function Testimonial() {
         const inAssoc = articles[nextIdx]!.querySelector(".t-assoc");
 
         masterTl.set(articles[i]!, { pointerEvents: "none" }, transitionLabel);
-        masterTl.set(articles[nextIdx]!, { pointerEvents: "auto", opacity: 1 }, transitionLabel);
-        masterTl.set(inQuoteWords, { yPercent: 110 }, transitionLabel);
+        masterTl.set(articles[nextIdx]!, { pointerEvents: "auto", opacity: 1, zIndex: 2 }, transitionLabel);
+        masterTl.set(inQuoteWords, { yPercent: 120, opacity: 0 }, transitionLabel);
         masterTl.set(
           [inName!, inProject, inSource, inAssoc].filter(Boolean),
           { opacity: 0, y: 20 },
@@ -191,7 +199,7 @@ export function Testimonial() {
         // Incoming animations
         masterTl.to(
           inQuoteWords,
-          { yPercent: 0, duration: 0.8, ease: "power3.out", stagger: 0.015 },
+          { yPercent: 0, opacity: 1, duration: 0.8, ease: "power3.out", stagger: 0.015 },
           `${transitionLabel}+=0.3`,
         );
         masterTl.to(
@@ -271,8 +279,8 @@ export function Testimonial() {
 
       introTl.fromTo(
         fQuoteWords,
-        { yPercent: 110 },
-        { yPercent: 0, duration: 1, ease: "power3.out", stagger: 0.015 },
+        { yPercent: 120, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: 1, ease: "power3.out", stagger: 0.015 },
         0.4,
       );
       introTl.fromTo(
@@ -390,11 +398,11 @@ export function Testimonial() {
             </h2>
           </header>
 
-          <div className="relative w-full min-h-[350px]">
+          <div className="relative w-full min-h-[350px] overflow-hidden testimonial-viewport">
             {testimonials.map((t, i) => (
               <article
                 key={i}
-                className={`desktop-article ${i === 0 ? "relative" : "absolute inset-0"} flex flex-col justify-center max-w-[900px] w-full h-full`}
+                className={`desktop-article ${i === 0 ? "relative" : "absolute inset-0"} flex flex-col justify-center max-w-[900px] w-full h-full testimonial-content`}
               >
                 <blockquote className="font-display text-[clamp(2.2rem,3.5vw,4.5rem)] leading-[1.05] tracking-[-0.02em] font-medium text-foreground mb-12 text-balance">
                   <SplitQuote text={`"${t.quote}"`} />
