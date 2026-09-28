@@ -64,14 +64,14 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="size-4 shrink-0 text-primary" strokeWidth={1.5} />
-                <a href="tel:+919000000000" className="hover:text-primary transition-colors">
-                  +91 90000 00000
+                <a href="tel:+919539567222" className="hover:text-primary transition-colors">
+                  +91 95395 67222
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="size-4 shrink-0 text-primary" strokeWidth={1.5} />
-                <a href="mailto:hello@fusiontechexpert.com" className="hover:text-primary transition-colors">
-                  hello@fusiontechexpert.com
+                <a href="mailto:fusiontechexperts2025@gmail.com" className="hover:text-primary transition-colors">
+                  fusiontechexperts2025@gmail.com
                 </a>
               </li>
             </ul>

@@ -1,4 +1,4 @@
-const brands = ["Control4", "Lutron", "Crestron", "KNX", "Hikvision", "Bose", "Somfy", "Ubiquiti"];
+const brands = ["Arris", "FT Smart", "Rain Bird", "Dea", "Autozone"];
 
 export function Brands() {
   return (

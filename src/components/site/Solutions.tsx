@@ -7,6 +7,10 @@ import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 import imgGate from "@/assets/sol-gate.jpg";
 import imgSecurityNew from "@/assets/sol-security-new.jpg";
+import imgLighting from "../../assets/lightning-smart-control.webp"
+import imgCurtain from "../../assets/curtian-and-climate-control.webp"
+import imgIrrigation from "../../assets/Irrigration-automation.webp"
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -53,7 +57,7 @@ const solutions = [
       "Smart switches",
       "Connected/mobile control",
     ],
-    image: { src: "https://placehold.co/1200x900/e2e8f0/64748b?text=Lighting+%26+Smart+Control" },
+    image: imgLighting,
     alt:
       "Contemporary interior with architectural lighting and smart wall switches",
   },
@@ -69,7 +73,7 @@ const solutions = [
       "Centralized climate control",
       "Scheduled operation",
     ],
-    image: { src: "https://placehold.co/1200x900/e2e8f0/64748b?text=Curtain+%26+Climate+Automation" },
+    image: imgCurtain,
     alt:
       "Luxury living room with automated curtains and climate control",
   },
@@ -84,7 +88,7 @@ const solutions = [
       "Automated water control",
       "Outdoor control",
     ],
-    image: { src: "https://placehold.co/1200x900/e2e8f0/64748b?text=Irrigation+Automation" },
+    image: imgIrrigation,
     alt:
       "Landscaped residential garden with an automated irrigation system",
   },

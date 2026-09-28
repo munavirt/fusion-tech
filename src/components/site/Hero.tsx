@@ -5,8 +5,7 @@ import { ArrowDown, ArrowUpRight } from "lucide-react";
 import heroImg from "../../assets/hero-right-1.png";
 
 const line1 = ["Home", "Automation"];
-const line2 = ["For"];
-const line3 = ["Modern", "Spaces"];
+const line2 = ["for", "Modern", "Spaces"];
 
 const metrics = [
   { value: "12+", label: "Years of integration" },
@@ -109,12 +108,12 @@ export function Hero() {
               </p>
             </div>
 
-            <h1 className="font-display text-foreground mt-6 lg:mt-8 text-[clamp(2.5rem,9vw,3.5rem)] lg:text-[clamp(3rem,4.5vw,5rem)] leading-[0.92] lg:leading-[0.94] font-[700] tracking-[-0.055em] w-full">
-              {[line1, line2, line3].map((words, i) => (
+            <h1 className="font-display text-foreground mt-6 lg:mt-8 text-[clamp(2.5rem,9vw,3.5rem)] lg:text-[clamp(3rem,4.5vw,5rem)] leading-[0.92] lg:leading-[0.94] font-[700] tracking-[-0.055em] w-full text-center lg:text-left">
+              {[line1, line2].map((words, i) => (
                 <span key={i} className="block overflow-hidden py-[0.06em]">
                   <span
                     data-word
-                    className={i === 2 ? "text-[#2964A0] block mx-auto lg:mx-0 whitespace-nowrap" : "block mx-auto lg:mx-0 whitespace-nowrap"}
+                    className={i === 1 ? "text-[#2964A0] inline-block" : "inline-block"}
                   >
                     {words.join(" ")}
                   </span>

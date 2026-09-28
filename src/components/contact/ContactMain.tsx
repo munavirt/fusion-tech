@@ -105,10 +105,10 @@ export function ContactMain() {
                       Phone
                     </h3>
                     <a
-                      href="tel:+919000000000"
+                      href="tel:+919539567222"
                       className="mt-1 block text-base font-medium text-foreground transition-colors hover:text-primary"
                     >
-                      +91 90000 00000
+                      +91 95395 67222
                     </a>
                   </div>
                 </div>
@@ -123,10 +123,10 @@ export function ContactMain() {
                       Email
                     </h3>
                     <a
-                      href="mailto:hello@fusiontechexpert.com"
+                      href="mailto:fusiontechexperts2025@gmail.com"
                       className="mt-1 block text-base font-medium text-foreground transition-colors hover:text-primary"
                     >
-                      hello@fusiontechexpert.com
+                      fusiontechexperts2025@gmail.com
                     </a>
                   </div>
                 </div>

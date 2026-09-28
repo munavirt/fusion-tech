@@ -258,7 +258,15 @@ export function Projects() {
         <div className="flex flex-col gap-24">
           {projects.map((p, i) => (
             <article key={i} className="mobile-article flex flex-col">
-              <div className="w-full aspect-[4/5] relative rounded-[16px] overflow-hidden bg-secondary mb-8 shadow-sm">
+              <div className="flex items-center gap-4 text-xs font-medium mb-3">
+                <span className="text-[var(--color-accent-signal)]">0{i + 1}</span>
+                <div className="w-8 h-[1px] bg-border"></div>
+                <span className="text-muted-foreground/70">0{projects.length}</span>
+              </div>
+              <h3 className="text-3xl font-medium font-display tracking-tight mb-6 text-foreground">
+                {p.title}
+              </h3>
+              <div className="w-full aspect-[4/5] relative rounded-[16px] overflow-hidden bg-secondary mb-6 shadow-sm">
                 <img
                   src={p.image.src}
                   alt={`Fusion Tech project in ${p.location}`}
@@ -266,14 +274,6 @@ export function Projects() {
                   loading={i === 0 ? "eager" : "lazy"}
                 />
               </div>
-              <div className="flex items-center gap-4 text-xs font-medium mb-5">
-                <span className="text-[var(--color-accent-signal)]">0{i + 1}</span>
-                <div className="w-8 h-[1px] bg-border"></div>
-                <span className="text-muted-foreground/70">0{projects.length}</span>
-              </div>
-              <h3 className="text-3xl font-medium font-display tracking-tight mb-3 text-foreground">
-                {p.title}
-              </h3>
               <div className="flex flex-col gap-1 text-muted-foreground mb-8 text-sm">
                 <p>{p.location}</p>
                 <p className="text-[13px] text-muted-foreground/70 uppercase tracking-wide mt-1">
