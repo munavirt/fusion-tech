@@ -24,14 +24,14 @@ const testimonials: TestimonialData[] = [
   {
     quote:
       "Everything works quietly in the background. The automation has made everyday living much simpler.",
-    name: "Fictional Customer",
+    name: "Nihal C K",
     project: "Residential Client · KOCHI · KERALA",
     bgImage: p1,
   },
   {
     quote:
       "From lighting to security, everything feels connected without making the home complicated.",
-    name: "Fictional Customer",
+    name: "Alan",
     project: "Homeowner · CALICUT · KERALA",
     bgImage: p2,
   },

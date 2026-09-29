@@ -91,7 +91,7 @@ export function Nav() {
             onClick={() => setMode(isNight ? "day" : "night")}
             aria-label={isNight ? "Switch to light mode" : "Switch to dark mode"}
             className={cn(
-              "hidden md:grid size-10 place-items-center rounded-full bg-secondary/80 text-foreground transition-all duration-300 hover:bg-secondary",
+              "grid size-10 place-items-center rounded-full bg-secondary/80 text-foreground transition-all duration-300 hover:bg-secondary",
               isTransitioning && "opacity-70 pointer-events-none",
             )}
           >
@@ -152,38 +152,15 @@ export function Nav() {
               );
             })}
             <li>
-              <Link
-                href="/contact"
+              <a
+                href="https://drive.google.com/file/d/1PDrt3gbGUnCUmBqniZxa_1VQj0K4bbgO/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className="inline-flex rounded-full bg-primary px-7 py-3 text-[13px] uppercase tracking-wider font-bold text-primary-foreground"
               >
-                Let&apos;s Talk &rarr;
-              </Link>
-            </li>
-            <li>
-              <button
-                type="button"
-                disabled={isTransitioning}
-                onClick={() => {
-                  setMode(isNight ? "day" : "night");
-                  setOpen(false);
-                }}
-                aria-label={isNight ? "Switch to light mode" : "Switch to dark mode"}
-                className={cn(
-                  "flex items-center gap-2 rounded-full bg-secondary/80 px-4 py-2 text-[15px] font-bold text-foreground transition-all duration-300 hover:bg-secondary",
-                  isTransitioning && "opacity-70 pointer-events-none",
-                )}
-              >
-                {isNight ? (
-                  <>
-                    <MoonStar className="size-5" strokeWidth={1.5} /> Light Mode
-                  </>
-                ) : (
-                  <>
-                    <Sun className="size-5" strokeWidth={1.5} /> Dark Mode
-                  </>
-                )}
-              </button>
+                BROCHURE &darr;
+              </a>
             </li>
           </ul>
         </div>
