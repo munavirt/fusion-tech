@@ -125,6 +125,7 @@ export function CustomCursor() {
 
       for (let i = particles.length - 1; i >= 0; i--) {
         const p = particles[i];
+        if (!p) continue;
         p.life -= 0.02; // Fade out speed
         p.x += p.vx;
         p.y += p.vy;
@@ -142,6 +143,7 @@ export function CustomCursor() {
         let connections = 0;
         for (let j = i - 1; j >= Math.max(0, i - 6); j--) {
           const p2 = particles[j];
+          if (!p2) continue;
           const dx = p.x - p2.x;
           const dy = p.y - p2.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
