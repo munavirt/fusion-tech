@@ -41,11 +41,11 @@ export function Nav() {
         <Link href="/" className="flex items-center gap-2.5">
           <span
             className={cn(
-              "font-display font-bold tracking-tight transition-all uppercase",
+              "font-brand transition-all",
               scrolled ? "text-[15px]" : "text-[17px]",
             )}
           >
-            FusionTech<span className="text-primary font-bold"> Experts</span>
+            fusiontech<span className="text-primary"> experts</span>
           </span>
         </Link>
 

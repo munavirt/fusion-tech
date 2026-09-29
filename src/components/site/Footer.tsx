@@ -9,8 +9,8 @@ export function Footer() {
         <div className="grid gap-14 lg:grid-cols-[1.5fr_1fr_1fr]">
           {/* Column 1: Brand */}
           <div>
-            <span className="font-display text-xl font-extrabold tracking-tight">
-              FusionTech<span className="text-primary"> Experts</span>
+            <span className="font-brand text-xl tracking-tight">
+              fusiontech<span className="text-primary"> experts</span>
             </span>
             <p className="mt-4 max-w-xs text-base text-muted-foreground">
               Intelligent home and commercial automation — designed, installed, and supported for connected spaces.

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Providers } from "@/components/providers";
 import { CustomCursor } from "@/components/ui/CustomCursor";
+import { Preloader } from "@/components/ui/Preloader";
 import "@/styles.css";
 
 export const metadata: Metadata = {
@@ -33,11 +34,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Ubuntu:wght@700&display=swap"
           rel="stylesheet"
         />
+        <style dangerouslySetInnerHTML={{ __html: `
+          .font-brand {
+            font-family: 'Ubuntu', sans-serif !important;
+            font-weight: 700 !important;
+          }
+        `}} />
       </head>
       <body>
+        <Preloader />
         <Providers>{children}</Providers>
         <CustomCursor />
       </body>
