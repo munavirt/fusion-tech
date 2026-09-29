@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { useInView } from "./Reveal";
 
 const stats = [
-  { value: 500, suffix: "+", label: "Projects" },
-  { value: 12, suffix: "+", label: "Years" },
+  { value: 100, suffix: "+", label: "Projects" },
+  { value: 5, suffix: "+", label: "Years" },
   { value: 35, suffix: "+", label: "Engineers" },
   { value: 24, suffix: "/7", label: "Support" },
 ];
