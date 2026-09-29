@@ -7,9 +7,9 @@ import { Footer } from "@/components/site/Footer";
 import type { Metadata } from "next";
 
 const TITLE =
-  "Solutions | Smart Home, Security & Commercial Automation | FusionTech";
+  "Solutions | FusionTech Experts";
 const DESCRIPTION =
-  "Explore FusionTech's smart home automation, security and surveillance, lighting automation, home theatre, and commercial automation solutions for connected residential and business spaces.";
+  "Explore FusionTech Experts's smart home automation, security and surveillance, lighting automation, home theatre, and commercial automation solutions for connected residential and business spaces.";
 
 export const metadata: Metadata = {
   title: TITLE,

@@ -5,9 +5,9 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import type { Metadata } from "next";
 
-const TITLE = "About FusionTech — Smart Automation & Integrated Technology Solutions";
+const TITLE = "About | FusionTech Experts";
 const DESCRIPTION =
-  "FusionTech provides smart automation and integrated technology solutions for residential, hospitality, and commercial spaces. Learn about our approach to connected environments.";
+  "FusionTech Experts provides smart automation and integrated technology solutions for residential, hospitality, and commercial spaces. Learn about our approach to connected environments.";
 
 export const metadata: Metadata = {
   title: TITLE,

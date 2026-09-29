@@ -7,9 +7,22 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 
 export const metadata: Metadata = {
-  title: "Projects | Smart Home & Automation Installations | FusionTech",
+  title: "Projects | FusionTech Experts",
   description:
-    "Explore selected FusionTech projects across residential and hospitality automation, including lighting, climate control, audio-visual systems, smart access, security, and automated shading.",
+    "Explore selected FusionTech Experts projects across residential and hospitality automation, including lighting, climate control, audio-visual systems, smart access, security, and automated shading.",
+  openGraph: {
+    title: "Projects | FusionTech Experts",
+    description:
+      "Explore selected FusionTech Experts projects across residential and hospitality automation, including lighting, climate control, audio-visual systems, smart access, security, and automated shading.",
+    type: "website",
+    url: "/projects",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  alternates: {
+    canonical: "/projects",
+  },
 };
 
 export default function ProjectsPage() {

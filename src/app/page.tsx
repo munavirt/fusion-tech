@@ -13,9 +13,9 @@ import { CtaSection } from "@/components/site/CtaSection";
 import { Footer } from "@/components/site/Footer";
 import { Metadata } from "next";
 
-const TITLE = "FusionTech Expert — Smart Home & Commercial Automation";
+const TITLE = "FusionTech Experts | Automation & Technology";
 const DESCRIPTION =
-  "Intelligent home and commercial automation: lighting, security, entertainment and climate working together. Book a free consultation with FusionTech Expert.";
+  "Intelligent home and commercial automation: lighting, security, entertainment and climate working together. Book a free consultation with FusionTech Experts.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -42,19 +42,18 @@ export default function Home() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            name: "FusionTech Expert",
+            "@type": "Organization",
+            name: "FusionTech Experts",
+            url: "https://fusiontechexpert.in",
             description: DESCRIPTION,
-            telephone: "+91 90000 00000",
-            email: "hello@fusiontechexpert.com",
+            telephone: "+91 95395 67222",
+            email: "fusiontechexperts2025@gmail.com",
             address: {
               "@type": "PostalAddress",
-              streetAddress: "Level 4, Tech Boulevard",
-              addressLocality: "Bengaluru",
-              postalCode: "560103",
+              addressLocality: "Calicut",
+              addressRegion: "Kerala",
               addressCountry: "IN",
-            },
-            areaServed: "India",
+            }
           }),
         }}
       />

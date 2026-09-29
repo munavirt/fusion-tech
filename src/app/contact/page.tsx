@@ -6,9 +6,9 @@ import { WhyContact } from "@/components/contact/WhyContact";
 import { ContactClosingCta } from "@/components/contact/ContactClosingCta";
 import type { Metadata } from "next";
 
-const TITLE = "Contact FusionTech — Smart Automation & Consultation";
+const TITLE = "Contact FusionTech Experts | Start a Project";
 const DESCRIPTION =
-  "Contact FusionTech to discuss your smart automation project, architectural lighting design, or access control requirements. Connect with our engineering team for technical consultations.";
+  "Contact FusionTech Experts to discuss your smart automation project, architectural lighting design, or access control requirements. Connect with our engineering team for technical consultations.";
 
 export const metadata: Metadata = {
   title: TITLE,

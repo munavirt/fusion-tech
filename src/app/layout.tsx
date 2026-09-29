@@ -5,15 +5,21 @@ import { Preloader } from "@/components/ui/Preloader";
 import "@/styles.css";
 
 export const metadata: Metadata = {
-  title: "FusionTech Expert",
-  description: "Intelligent home and commercial automation.",
-  authors: [{ name: "FusionTech Expert" }],
+  metadataBase: new URL("https://fusiontechexpert.in"),
+  title: "FusionTech Experts | Automation & Technology",
+  description: "Intelligent home and commercial automation — designed, installed, and supported for connected spaces.",
+  authors: [{ name: "FusionTech Experts" }],
   openGraph: {
     type: "website",
-    siteName: "FusionTech Expert",
+    siteName: "FusionTech Experts",
+    url: "https://fusiontechexpert.in",
   },
   twitter: {
     card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
   icons: {
     icon: [
