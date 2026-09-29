@@ -101,12 +101,14 @@ export function Nav() {
               <Sun className="size-5" strokeWidth={1.5} />
             )}
           </button>
-          <Link
-            href="/contact"
+          <a
+            href="https://drive.google.com/file/d/1PDrt3gbGUnCUmBqniZxa_1VQj0K4bbgO/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden rounded-full bg-primary px-7 py-3 text-[13px] uppercase tracking-wider font-bold text-primary-foreground shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-deep hover:shadow-lift md:inline-flex"
           >
-            Let&apos;s Talk &rarr;
-          </Link>
+            BROCHURE &darr;
+          </a>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}

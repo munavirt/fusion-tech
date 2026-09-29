@@ -3,7 +3,8 @@
 import { Reveal } from "@/components/site/Reveal";
 import { ArrowUpRight } from "lucide-react";
 import imgLighting from "@/assets/sol-lighting.jpg";
-import imgTheatre from "@/assets/sol-theatre.jpg";
+import imgSolution05 from "@/assets/solution-05.webp";
+import imgSolution06 from "@/assets/solution-06.webp";
 
 export function ExperienceEnvironment() {
   return (
@@ -83,8 +84,25 @@ export function ExperienceEnvironment() {
         </div>
 
         {/* Section 05: Smart Curtains */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-20 items-center">
-          <div className="order-2 lg:order-1">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-20 items-center">
+          
+          {/* MOBILE ONLY: Title & Head */}
+          <div className="lg:hidden w-full order-1">
+            <Reveal>
+              <div className="flex items-center gap-4 mb-6">
+                <span className="font-display text-sm tracking-widest text-primary font-semibold">05</span>
+                <span className="text-[11px] tracking-[0.2em] uppercase font-semibold text-muted-foreground">
+                  Smart Curtains
+                </span>
+              </div>
+              <h3 className="font-display text-[clamp(2rem,3.5vw,3rem)] leading-[1.05] font-semibold tracking-tight text-foreground">
+                Control the light. Shape the room.
+              </h3>
+            </Reveal>
+          </div>
+
+          {/* DESKTOP ONLY: Full Text Block */}
+          <div className="hidden lg:block w-full lg:order-1">
             <Reveal>
               <div className="flex items-center gap-4 mb-6">
                 <span className="font-display text-sm tracking-widest text-primary font-semibold">05</span>
@@ -123,23 +141,73 @@ export function ExperienceEnvironment() {
             </Reveal>
           </div>
 
-          <div className="order-1 lg:order-2">
+          {/* Image */}
+          <div className="w-full order-2 lg:order-2">
             <Reveal delay={100}>
               <div className="relative aspect-[4/5] overflow-hidden rounded-[20px] border border-border/50 bg-muted/30">
                 <img
-                  src={imgTheatre.src}
+                  src={imgSolution05.src}
                   alt="Private home cinema room with tiered seating and acoustic panels"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
             </Reveal>
           </div>
+
+          {/* MOBILE ONLY: Paragraphs */}
+          <div className="lg:hidden w-full order-3">
+            <Reveal delay={200}>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                Automated curtain and shading systems designed to manage daylight, privacy, and atmosphere. Our curtain automation integrates naturally with your wider smart home environment for effortless control.
+              </p>
+              
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 mb-10">
+                {[
+                  "Curtain Automation",
+                  "Tubular Motors",
+                  "Expandable Tracks",
+                  "Custom Tracks"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <span className="mt-1.5 size-1.5 rounded-full bg-primary/70 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              
+              <a
+                href="#contact"
+                className="group inline-flex items-center gap-2 text-[13px] uppercase tracking-wider font-semibold text-primary transition-all duration-300 hover:gap-3"
+              >
+                Discuss Smart Curtains
+                <ArrowUpRight className="size-4" strokeWidth={1.5} />
+              </a>
+            </Reveal>
+          </div>
+
         </div>
 
         {/* Section 06: Irrigation */}
         <div className="mt-24 lg:mt-32">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-20 items-center">
-            <div className="order-2 lg:order-2">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-20 items-center">
+            
+            {/* MOBILE ONLY: Title & Head */}
+            <div className="lg:hidden w-full order-1">
+              <Reveal>
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="font-display text-sm tracking-widest text-primary font-semibold">06</span>
+                  <span className="text-[11px] tracking-[0.2em] uppercase font-semibold text-muted-foreground">
+                    Irrigation Automation
+                  </span>
+                </div>
+                <h3 className="font-display text-[clamp(2rem,3.5vw,3rem)] leading-[1.05] font-semibold tracking-tight text-foreground">
+                  Care for your landscape.
+                </h3>
+              </Reveal>
+            </div>
+
+            {/* DESKTOP ONLY: Full Text Block */}
+            <div className="hidden lg:block w-full lg:order-2">
               <Reveal>
                 <div className="flex items-center gap-4 mb-6">
                   <span className="font-display text-sm tracking-widest text-primary font-semibold">06</span>
@@ -178,17 +246,50 @@ export function ExperienceEnvironment() {
               </Reveal>
             </div>
 
-            <div className="order-1 lg:order-1">
+            {/* Image */}
+            <div className="w-full order-2 lg:order-1">
               <Reveal delay={100}>
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[20px] border border-border/50 bg-muted/30">
                   <img
-                    src="https://placehold.co/1200x900/e2e8f0/64748b?text=Irrigation"
+                    src={imgSolution06.src}
                     alt="Automated irrigation system in a landscape garden"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
               </Reveal>
             </div>
+
+            {/* MOBILE ONLY: Paragraphs */}
+            <div className="lg:hidden w-full order-3">
+              <Reveal delay={200}>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                  Keep gardens and outdoor spaces maintained with automated irrigation systems. Manage watering schedules and routine water control automatically, ensuring healthy landscapes with less manual effort.
+                </p>
+                
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 mb-10">
+                  {[
+                    "Irrigation Automation",
+                    "Scheduled Watering",
+                    "Automated Water Control",
+                    "Outdoor Management"
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="mt-1.5 size-1.5 rounded-full bg-primary/70 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                
+                <a
+                  href="#contact"
+                  className="group inline-flex items-center gap-2 text-[13px] uppercase tracking-wider font-semibold text-primary transition-all duration-300 hover:gap-3"
+                >
+                  Discuss Irrigation
+                  <ArrowUpRight className="size-4" strokeWidth={1.5} />
+                </a>
+              </Reveal>
+            </div>
+
           </div>
         </div>
 

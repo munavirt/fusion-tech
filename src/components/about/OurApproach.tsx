@@ -6,9 +6,22 @@ export function OurApproach() {
   return (
     <section className="bg-background py-24 lg:py-32">
       <div className="mx-auto w-full max-w-[1280px] px-6">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-20">
-          {/* Text */}
-          <div className="w-full lg:w-[50%]">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-20">
+          
+          {/* MOBILE ONLY: Title & Head */}
+          <div className="lg:hidden w-full order-1">
+            <Reveal>
+              <p className="text-[11px] tracking-[0.2em] font-semibold text-muted-foreground uppercase">
+                Our Approach
+              </p>
+              <h2 className="mt-5 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] font-semibold tracking-[-0.03em] text-foreground">
+                Designed Around the Way You Live and Work
+              </h2>
+            </Reveal>
+          </div>
+
+          {/* DESKTOP ONLY: Full Text Block */}
+          <div className="hidden lg:block w-full lg:w-[50%] lg:order-1">
             <Reveal>
               <p className="text-[11px] tracking-[0.2em] font-semibold text-muted-foreground uppercase">
                 Our Approach
@@ -33,7 +46,7 @@ export function OurApproach() {
           </div>
 
           {/* Image */}
-          <div className="w-full lg:w-[50%]">
+          <div className="w-full lg:w-[50%] order-2 lg:order-2">
             <Reveal delay={120}>
               <div className="overflow-hidden rounded-[20px]">
                 <img
@@ -47,6 +60,26 @@ export function OurApproach() {
               </div>
             </Reveal>
           </div>
+
+          {/* MOBILE ONLY: Paragraphs */}
+          <div className="lg:hidden w-full order-3">
+            <Reveal delay={200}>
+              <p className="text-lg leading-relaxed text-muted-foreground max-w-xl">
+                Every space is different, and every environment has its own
+                requirements. FusionTech begins each project by understanding
+                how a space is actually used — then selects and integrates the
+                technologies that genuinely support that use.
+              </p>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground max-w-xl">
+                Usability and reliability come first. We focus on creating
+                connected, practical environments where automation feels
+                natural, systems are straightforward to operate, and the
+                technology stays out of the way — doing its job without
+                demanding attention.
+              </p>
+            </Reveal>
+          </div>
+
         </div>
       </div>
     </section>

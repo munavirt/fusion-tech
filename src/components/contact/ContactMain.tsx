@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Reveal } from "@/components/site/Reveal";
 import { Mail, Phone, MapPin, Clock, ArrowUpRight, CheckCircle2, Loader2 } from "lucide-react";
+import gsap from "gsap";
+import { ContactSuccessState } from "./ContactSuccessState";
 
-type FormState = "idle" | "submitting" | "success";
+type FormState = "idle" | "submitting" | "success" | "error";
 
 interface FormErrors {
   fullName?: string;
@@ -44,23 +46,72 @@ export function ContactMain() {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const formContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // When form returns to idle, fade it back in if it was hidden
+    if (formState === "idle" && formContainerRef.current) {
+      gsap.fromTo(
+        formContainerRef.current,
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out", clearProps: "all" }
+      );
+    }
+  }, [formState]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setFormState("submitting");
-    setTimeout(() => {
-      setFormState("success");
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        company: "",
-        inquiryType: "Smart Automation Systems",
-        message: "",
+    
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-      setErrors({});
-    }, 1200);
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      if (formContainerRef.current) {
+        gsap.to(formContainerRef.current, {
+          opacity: 0,
+          y: -15,
+          duration: 0.4,
+          ease: "power2.inOut",
+          onComplete: () => {
+            setFormState("success");
+            setFormData({
+              fullName: "",
+              email: "",
+              phone: "",
+              company: "",
+              inquiryType: "Smart Home Automation",
+              message: "",
+            });
+            setErrors({});
+          }
+        });
+      } else {
+        setFormState("success");
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          company: "",
+          inquiryType: "Smart Home Automation",
+          message: "",
+        });
+        setErrors({});
+      }
+    } catch (error) {
+      setFormState("error");
+    }
   };
 
   const handleChange = (
@@ -141,9 +192,9 @@ export function ContactMain() {
                       Office Location
                     </h3>
                     <p className="mt-1 text-base text-foreground leading-relaxed">
-                      Level 4, Tech Boulevard,
+                      Karuvankallu, Airpoart Road, Kunnupuram
                       <br />
-                      Bengaluru 560103, Karnataka, India
+                      Malappuram 673638, Kerala, India
                     </p>
                   </div>
                 </div>
@@ -158,9 +209,7 @@ export function ContactMain() {
                       Business Hours
                     </h3>
                     <p className="mt-1 text-sm text-foreground leading-relaxed">
-                      Monday – Saturday: 9:00 AM – 6:00 PM IST
-                      <br />
-                      <span className="text-muted-foreground">Sunday: Closed</span>
+                      Monday – Sunday: 9:00 AM – 7:00 PM IST
                     </p>
                   </div>
                 </div>
@@ -180,28 +229,9 @@ export function ContactMain() {
             <Reveal delay={100}>
               <div className="rounded-[20px] border border-border/40 bg-background/95 p-8 lg:p-10 shadow-sm max-w-2xl ml-auto">
                 {formState === "success" ? (
-                  <div className="py-12 text-center">
-                    <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      <CheckCircle2 className="size-7" />
-                    </div>
-                    <h3 className="mt-5 font-display text-2xl font-semibold tracking-tight text-foreground">
-                      Inquiry Received
-                    </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground max-w-md mx-auto">
-                      Thank you for contacting FusionTech. A member of our
-                      project advisory team will review your requirements and
-                      respond shortly.
-                    </p>
-                    <button
-                      type="button"
-                      onClick={() => setFormState("idle")}
-                      className="mt-8 inline-flex items-center gap-2 rounded-full border border-border bg-secondary/80 px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-foreground transition-all hover:bg-secondary"
-                    >
-                      Send Another Inquiry
-                    </button>
-                  </div>
+                  <ContactSuccessState onReset={() => setFormState("idle")} />
                 ) : (
-                  <>
+                  <div ref={formContainerRef}>
                     <p className="text-[11px] tracking-[0.2em] font-semibold text-muted-foreground uppercase mb-3">
                       Project Inquiry
                     </p>
@@ -211,6 +241,12 @@ export function ContactMain() {
                     <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground mb-8">
                       Share a few details about your space, requirements, or product interests. Our team will review your inquiry and guide you toward the right solution.
                     </p>
+
+                    {formState === "error" && (
+                      <div className="mb-6 rounded-lg border border-destructive/20 bg-destructive/5 p-4 text-sm text-destructive">
+                        Something went wrong while sending your message. Please try again later.
+                      </div>
+                    )}
 
                     <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                       {/* Name & Email Row */}
@@ -320,12 +356,14 @@ export function ContactMain() {
                           onChange={handleChange}
                           className="w-full rounded-lg border border-border bg-muted/20 px-4 py-3 text-sm text-foreground transition-all focus:border-primary focus:bg-background focus:outline-none focus:ring-1 focus:ring-primary"
                         >
-                          <option value="Smart Automation Systems">Smart Automation Systems</option>
-                          <option value="Architectural Lighting Control">Architectural Lighting Control</option>
-                          <option value="Digital Access & Security">Digital Access &amp; Security</option>
-                          <option value="Motorized Curtains & Shading">Motorized Curtains &amp; Shading</option>
-                          <option value="Hospitality & Hotel Automation">Hospitality &amp; Hotel Automation</option>
-                          <option value="Commercial / Enterprise Building Systems">Commercial / Enterprise Building Systems</option>
+                          <option value="Smart Home Automation">Smart Home Automation</option>
+                          <option value="Security & Surveillance">Security &amp; Surveillance</option>
+                          <option value="Climate Control">Climate Control</option>
+                          <option value="Access & Security">Access &amp; Security</option>
+                          <option value="Smart Curtains">Smart Curtains</option>
+                          <option value="Irrigation Automation">Irrigation Automation</option>
+                          <option value="Hospitality Automation">Hospitality Automation</option>
+                          <option value="Intercom & Connected Buildings">Intercom &amp; Connected Buildings</option>
                           <option value="General Consultation">General Consultation</option>
                         </select>
                       </div>
@@ -377,7 +415,7 @@ export function ContactMain() {
                         </button>
                       </div>
                     </form>
-                  </>
+                  </div>
                 )}
               </div>
             </Reveal>
