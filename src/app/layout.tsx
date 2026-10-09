@@ -5,14 +5,14 @@ import { Preloader } from "@/components/ui/Preloader";
 import "@/styles.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://fusiontechexpert.in"),
+  metadataBase: new URL("https://www.fusiontechexpert.in"),
   title: "FusionTech Experts | Automation & Technology",
   description: "Intelligent home and commercial automation — designed, installed, and supported for connected spaces.",
   authors: [{ name: "FusionTech Experts" }],
   openGraph: {
     type: "website",
     siteName: "FusionTech Experts",
-    url: "https://fusiontechexpert.in",
+    url: "https://www.fusiontechexpert.in",
   },
   twitter: {
     card: "summary_large_image",
@@ -43,7 +43,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Ubuntu:wght@700&display=swap"
           rel="stylesheet"
         />
-        <style dangerouslySetInnerHTML={{ __html: `
+        <style dangerouslySetInnerHTML={{
+          __html: `
           .font-brand {
             font-family: 'Ubuntu', sans-serif !important;
             font-weight: 700 !important;

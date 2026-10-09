@@ -1,36 +1,39 @@
-import { MetadataRoute } from 'next'
- 
+
+import type { MetadataRoute } from "next";
+
+const baseUrl = "https://www.fusiontechexpert.in";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://fusiontechexpert.in',
+      url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: 'https://fusiontechexpert.in/about',
+      url: `${baseUrl}/about`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: 'https://fusiontechexpert.in/solutions',
+      url: `${baseUrl}/solutions`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: 'https://fusiontechexpert.in/projects',
+      url: `${baseUrl}/projects`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: 'https://fusiontechexpert.in/contact',
+      url: `${baseUrl}/contact`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.8,
     },
-  ]
+  ];
 }
