@@ -38,7 +38,7 @@ const testimonials: TestimonialData[] = [
   {
     quote:
       "The system feels natural to use. It adds comfort without taking away from the simplicity of the space.",
-    name: "Fictional Customer",
+    name: "John",
     project: "Residential Client · PALAKKAD · KERALA",
     bgImage: p3,
   },

@@ -6,6 +6,7 @@ import { Solutions } from "@/components/site/Solutions";
 import { SmartHomeMap } from "@/components/site/SmartHomeMap";
 import { Process } from "@/components/site/Process";
 import { Projects } from "@/components/site/Projects";
+import { VideoShowcase } from "@/components/site/VideoShowcase";
 import { Brands } from "@/components/site/Brands";
 import { Testimonial } from "@/components/site/Testimonial";
 import { Faq } from "@/components/site/Faq";
@@ -66,6 +67,7 @@ export default function Home() {
         <SmartHomeMap />
         <Process />
         <Projects />
+        <VideoShowcase />
         <Brands />
         <Testimonial />
         <Faq />
